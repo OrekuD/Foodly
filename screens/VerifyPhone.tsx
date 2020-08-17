@@ -1,4 +1,4 @@
-import React, { createRef } from "react";
+import React, { createRef, useState } from "react";
 import { View, StyleSheet, TouchableOpacity, TextInput } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
@@ -11,6 +11,7 @@ const VerifyPhone = ({
   const textInput2 = createRef<TextInput>();
   const textInput3 = createRef<TextInput>();
   const textInput4 = createRef<TextInput>();
+  const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
   return (
     <View style={styles.container}>
@@ -71,13 +72,14 @@ const VerifyPhone = ({
             onChangeText={(text) => {
               if (text.length === 1) {
                 textInput4.current?.blur();
+                setIsCorrect(true);
               }
             }}
           />
         </View>
         <Button
           label="Continue"
-          onPress={() => navigation.navigate("VerifyPhone")}
+          onPress={() => isCorrect && navigation.navigate("SetupLocation")}
         />
         <View style={styles.row}>
           <Text variant="caption" color="grey">
