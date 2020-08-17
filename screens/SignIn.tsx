@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, StyleSheet } from "react-native";
-import { StackHeader, Text } from "../components";
+import { StackHeader, Text, Form } from "../components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
 import { white } from "../constants/Colors";
@@ -21,6 +21,7 @@ const SignIn = ({
           Enter your Phone number or email address to sign in. Enjoy your food
           :)
         </Text>
+        <Form />
       </View>
     </View>
   );

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { Text as RNText, View, StyleSheet, TextStyle } from "react-native";
-import { black, white, grey } from "../constants/Colors";
+import { black, white, grey, green } from "../constants/Colors";
 
 interface TextProps {
   children: ReactNode;
@@ -15,7 +15,7 @@ interface TextProps {
     | "caption"
     | "headerText";
   textProps?: TextProps;
-  color?: "white" | "grey";
+  color?: "white" | "grey" | "green";
 }
 
 const Text = ({ style, children, variant, textProps, color }: TextProps) => {
@@ -57,6 +57,9 @@ const Text = ({ style, children, variant, textProps, color }: TextProps) => {
       break;
     case "grey":
       textColor = grey;
+      break;
+    case "green":
+      textColor = green;
       break;
     default:
       textColor = black;
