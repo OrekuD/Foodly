@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
   body: {
     fontSize: 22,
     fontFamily: "SFProDisplay-Regular",
+    lineHeight: 32,
   },
   subhead: {
     fontSize: 20,
