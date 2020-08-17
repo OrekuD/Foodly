@@ -6,7 +6,7 @@ import {
   TextStyle,
   TextProps,
 } from "react-native";
-import { black, white, grey, green } from "../constants/Colors";
+import { black, white, grey, green, darkgrey } from "../constants/Colors";
 
 interface Props extends TextProps {
   children: ReactNode;
@@ -20,7 +20,7 @@ interface Props extends TextProps {
     | "subhead"
     | "caption"
     | "headerText";
-  color?: "white" | "grey" | "green";
+  color?: "white" | "grey" | "green" | "darkgrey";
 }
 
 const Text = ({ style, children, variant, color, numberOfLines }: Props) => {
@@ -62,6 +62,9 @@ const Text = ({ style, children, variant, color, numberOfLines }: Props) => {
       break;
     case "grey":
       textColor = grey;
+      break;
+    case "darkgrey":
+      textColor = darkgrey;
       break;
     case "green":
       textColor = green;
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
   body: {
     fontSize: 22,
     fontFamily: "SFProDisplay-Regular",
-    lineHeight: 32,
+    // lineHeight: 32,
   },
   subhead: {
     fontSize: 20,

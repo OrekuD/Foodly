@@ -7,6 +7,7 @@ const orange = "#EF9920";
 const blue = "#4285F4";
 const deepblue = "#395998";
 const lightgrey = "#eeeeee";
+const darkgrey = "#5C6560";
 
 export {
   green,
@@ -18,4 +19,5 @@ export {
   blue,
   deepblue,
   lightgrey,
+  darkgrey,
 };

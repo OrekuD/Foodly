@@ -1,20 +1,38 @@
 import React from "react";
-import { View, StyleSheet, ViewStyle, Text } from "react-native";
+import {
+  View,
+  StyleSheet,
+  ViewStyle,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { width } from "../../constants/Layout";
-import { green, white } from "../../constants/Colors";
+import { green, white, black, grey } from "../../constants/Colors";
 import { RectButton } from "react-native-gesture-handler";
 
 interface ButtonProps {
   label: string;
   onPress: () => void;
   style?: ViewStyle;
+  transparent?: boolean;
 }
 
-const Button = ({ label, onPress, style }: ButtonProps) => {
+const Button = ({ label, onPress, style, transparent }: ButtonProps) => {
   return (
-    <RectButton onPress={onPress} style={{ ...styles.container, ...style }}>
-      <Text style={styles.text}>{label}</Text>
-    </RectButton>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={onPress}
+      style={{
+        ...styles.container,
+        backgroundColor: transparent ? white : green,
+        borderWidth: transparent ? 1 : 0,
+        ...style,
+      }}
+    >
+      <Text style={{ ...styles.text, color: transparent ? black : white }}>
+        {label}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
@@ -24,14 +42,13 @@ const styles = StyleSheet.create({
   container: {
     width: width * 0.9,
     height: 50,
-    backgroundColor: green,
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
     borderRadius: 10,
+    borderColor: grey,
   },
   text: {
-    color: white,
     fontFamily: "SFProDisplay-Bold",
     textTransform: "uppercase",
     fontSize: 18,

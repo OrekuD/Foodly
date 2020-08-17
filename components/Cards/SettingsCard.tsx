@@ -11,23 +11,31 @@ interface SettingsCardProps {
   item: AccountSetting;
   navigation: StackNavigationProp<ProfileStackParamList, "Profile">;
   last: boolean;
+  more?: boolean;
 }
 
-const SettingsCard = ({ item, navigation, last }: SettingsCardProps) => {
+const SettingsCard = ({ item, navigation, last, more }: SettingsCardProps) => {
   const { icon, subtitle, title, screen } = item;
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      onPress={() => navigation.navigate(screen)}
+      onPress={() => !more && navigation.navigate(screen)}
       style={styles.container}
     >
       {icon}
       <View style={{ ...styles.content, borderBottomWidth: last ? 0 : 1 }}>
         <View style={styles.textContent}>
-          <Text variant="body">{title}</Text>
-          <Text variant="body" color="grey" numberOfLines={1}>
-            {subtitle}
+          <Text
+            variant="subhead"
+            style={{ marginBottom: subtitle === "" ? 3 : 0 }}
+          >
+            {title}
           </Text>
+          {subtitle === "" ? null : (
+            <Text variant="subhead" color="grey" numberOfLines={1}>
+              {subtitle}
+            </Text>
+          )}
         </View>
         <MaterialCommunityIcons name="chevron-right" size={34} color={black} />
       </View>
@@ -41,7 +49,6 @@ const styles = StyleSheet.create({
   container: {
     width: width,
     height: 65,
-    // backgroundColor: "aqua",
     marginBottom: 20,
     flexDirection: "row",
     alignItems: "center",
@@ -57,7 +64,7 @@ const styles = StyleSheet.create({
   textContent: {
     flex: 1,
     height: "100%",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
     paddingVertical: 1,
   },
 });
