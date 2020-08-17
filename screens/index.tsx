@@ -1,6 +1,14 @@
 export { default as Home } from "./Home";
 export { default as Orders } from "./Orders";
-export { default as Profile } from "./Profile";
+export {
+  Profile,
+  AddSocialAccount,
+  ChangePassword,
+  Locations,
+  PaymentMethods,
+  ProfileInformation,
+  ReferFriends,
+} from "./Profile";
 export { default as Search } from "./Search";
 export { default as ForgotPassword } from "./ForgotPassword";
 export { default as GetStarted } from "./GetStarted";

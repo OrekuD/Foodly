@@ -25,6 +25,12 @@ import {
   GetStarted,
   VerifyPhone,
   SetupLocation,
+  ChangePassword,
+  PaymentMethods,
+  Locations,
+  ProfileInformation,
+  AddSocialAccount,
+  ReferFriends,
 } from "../screens";
 import { useAppContext } from "../context/Context";
 import { Ionicons } from "@expo/vector-icons";
@@ -72,6 +78,18 @@ const ProfileNavigation = () => {
       }}
     >
       <ProfileStack.Screen name="Profile" component={Profile} />
+      <ProfileStack.Screen name="ChangePassword" component={ChangePassword} />
+      <ProfileStack.Screen name="PaymentMethods" component={PaymentMethods} />
+      <ProfileStack.Screen name="Locations" component={Locations} />
+      <ProfileStack.Screen
+        name="AddSocialAccount"
+        component={AddSocialAccount}
+      />
+      <ProfileStack.Screen
+        name="ProfileInformation"
+        component={ProfileInformation}
+      />
+      <ProfileStack.Screen name="ReferFriends" component={ReferFriends} />
     </ProfileStack.Navigator>
   );
 };
@@ -90,6 +108,7 @@ const SearchNavigation = () => {
 };
 
 const BottomTabNavigation = () => {
+  const { isTabbarVissible } = useAppContext();
   return (
     <BottomTab.Navigator
       tabBarOptions={{
@@ -107,6 +126,9 @@ const BottomTabNavigation = () => {
         iconStyle: {
           marginTop: 5,
         },
+      }}
+      screenOptions={{
+        tabBarVisible: isTabbarVissible,
       }}
     >
       <BottomTab.Screen

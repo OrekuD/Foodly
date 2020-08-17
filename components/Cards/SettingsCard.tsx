@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { AccountSetting, ProfileStackParamList } from "../../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import Text from "../Text";
@@ -10,14 +10,19 @@ import { width } from "../../constants/Layout";
 interface SettingsCardProps {
   item: AccountSetting;
   navigation: StackNavigationProp<ProfileStackParamList, "Profile">;
+  last: boolean;
 }
 
-const SettingsCard = ({ item, navigation }: SettingsCardProps) => {
-  const { icon, subtitle, title } = item;
+const SettingsCard = ({ item, navigation, last }: SettingsCardProps) => {
+  const { icon, subtitle, title, screen } = item;
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate(screen)}
+      style={styles.container}
+    >
       {icon}
-      <View style={styles.content}>
+      <View style={{ ...styles.content, borderBottomWidth: last ? 0 : 1 }}>
         <View style={styles.textContent}>
           <Text variant="body">{title}</Text>
           <Text variant="body" color="grey" numberOfLines={1}>
@@ -26,7 +31,7 @@ const SettingsCard = ({ item, navigation }: SettingsCardProps) => {
         </View>
         <MaterialCommunityIcons name="chevron-right" size={34} color={black} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -44,10 +49,10 @@ const styles = StyleSheet.create({
   },
   content: {
     flexDirection: "row",
-    borderBottomWidth: 2,
     borderBottomColor: lightgrey,
     marginLeft: 20,
     alignItems: "center",
+    paddingRight: 10,
   },
   textContent: {
     flex: 1,

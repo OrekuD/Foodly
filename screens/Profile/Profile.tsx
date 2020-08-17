@@ -1,9 +1,9 @@
 import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
-import { AccountSetting, ProfileStackParamList } from "../types";
+import { AccountSetting, ProfileStackParamList } from "../../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Text, SettingsCard } from "../components";
-import { white, grey } from "../constants/Colors";
+import { Text, SettingsCard } from "../../components";
+import { white, grey } from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import { StackScreenProps } from "@react-navigation/stack";
 
@@ -74,8 +74,12 @@ const Profile = ({
           data={accountSettings}
           keyExtractor={({ id }) => id}
           showsVerticalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <SettingsCard item={item} navigation={navigation} />
+          renderItem={({ item, index }) => (
+            <SettingsCard
+              item={item}
+              navigation={navigation}
+              last={index === accountSettings.length - 1}
+            />
           )}
         />
       </View>
@@ -91,6 +95,6 @@ const styles = StyleSheet.create({
     backgroundColor: white,
   },
   settingsItems: {
-    paddingTop: 20,
+    paddingTop: 40,
   },
 });

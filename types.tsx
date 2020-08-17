@@ -49,6 +49,8 @@ export interface WalkthroughSlideProps {
 
 export interface AppContext {
   isLoggedIn: boolean;
+  isTabbarVissible: boolean;
+  setTabbarState: (state: boolean) => void;
   setUserState: (state: boolean) => void;
 }
 
