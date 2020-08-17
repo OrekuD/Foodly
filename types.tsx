@@ -1,17 +1,33 @@
 export type RootStackParamList = {
-  Root: undefined;
-  NotFound: undefined;
+  Walkthrough: undefined;
+  SignIn: undefined;
+  SignUp: undefined;
+  ForgotPassword: undefined;
+  SetupLocation: undefined;
+  GetStarted: undefined;
+  VerifyPhone: undefined;
+  Main: undefined;
 };
 
 export type BottomTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  Home: undefined;
+  Profile: undefined;
+  Search: undefined;
+  Orders: undefined;
 };
 
-export type TabOneParamList = {
-  TabOneScreen: undefined;
+export type HomeStackParamList = {
+  Home: undefined;
 };
 
-export type TabTwoParamList = {
-  TabTwoScreen: undefined;
+export type OrdersStackParamList = {
+  Orders: undefined;
+};
+
+export type SearchStackParamList = {
+  Search: undefined;
+};
+
+export type ProfileStackParamList = {
+  Profile: undefined;
 };
