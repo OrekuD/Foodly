@@ -12,7 +12,7 @@ interface TextProps {
     | "body"
     | "subhead"
     | "caption";
-  textProps: TextProps;
+  textProps?: TextProps;
 }
 
 const Text = ({ style, children, variant, textProps }: TextProps) => {
@@ -70,11 +70,11 @@ const styles = StyleSheet.create({
     fontFamily: "SFProDisplay-Regular",
   },
   headline: {
-    fontSize: 26,
+    fontSize: 36,
     fontFamily: "SFProDisplay-Bold",
   },
   body: {
-    fontSize: 18,
+    fontSize: 22,
     fontFamily: "SFProDisplay-Regular",
   },
   subhead: {

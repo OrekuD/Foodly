@@ -1,3 +1,5 @@
+import { ImageRequireSource } from "react-native";
+
 export type RootStackParamList = {
   Walkthrough: undefined;
   SignIn: undefined;
@@ -31,3 +33,10 @@ export type SearchStackParamList = {
 export type ProfileStackParamList = {
   Profile: undefined;
 };
+
+export interface WalkthroughSlideProps {
+  id: string;
+  title: string;
+  subtitle: string;
+  image: ImageRequireSource;
+}

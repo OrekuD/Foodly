@@ -1,0 +1,2 @@
+export walkthrough images png
+check text properties, sizes, etc
