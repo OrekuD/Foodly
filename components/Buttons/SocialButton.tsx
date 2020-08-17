@@ -1,16 +1,16 @@
 import React from "react";
 import { View, StyleSheet, ViewStyle, Text } from "react-native";
-import { width } from "../constants/Layout";
-import { green, white } from "../constants/Colors";
+import { width } from "../../constants/Layout";
+import { green, white } from "../../constants/Colors";
 import { RectButton } from "react-native-gesture-handler";
 
-interface ButtonProps {
+interface SocialButtonProps {
   label: string;
   onPress: () => void;
   style?: ViewStyle;
 }
 
-const Button = ({ label, onPress, style }: ButtonProps) => {
+const SocialButton = ({ label, onPress, style }: SocialButtonProps) => {
   return (
     <RectButton onPress={onPress} style={{ ...styles.container, ...style }}>
       <Text style={styles.text}>{label}</Text>
@@ -18,7 +18,7 @@ const Button = ({ label, onPress, style }: ButtonProps) => {
   );
 };
 
-export default Button;
+export default SocialButton;
 
 const styles = StyleSheet.create({
   container: {

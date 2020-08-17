@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
@@ -13,6 +13,7 @@ export default function useCachedResources() {
 
         await Font.loadAsync({
           ...Ionicons.font,
+          ...MaterialCommunityIcons.font,
           "SFProDisplay-Bold": require("../assets/fonts/SFProDisplay-Bold.ttf"),
           "SFProDisplay-Regular": require("../assets/fonts/SFProDisplay-Regular.ttf"),
         });

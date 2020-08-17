@@ -5,10 +5,12 @@ import { white, green } from "../constants/Colors";
 import { width } from "../constants/Layout";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { slides } from "../data/walkthrough";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../types";
 
-interface WalkthroughProps {}
-
-const Walkthrough = (props: WalkthroughProps) => {
+const Walkthrough = ({
+  navigation,
+}: StackScreenProps<RootStackParamList, "Walkthrough">) => {
   const { top, bottom } = useSafeAreaInsets();
   const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -50,7 +52,10 @@ const Walkthrough = (props: WalkthroughProps) => {
         })}
       </View>
       <View style={{ ...styles.bottomTab, paddingBottom: bottom }}>
-        <Button label="get started" onPress={() => {}} />
+        <Button
+          label="get started"
+          onPress={() => navigation.navigate("SignIn")}
+        />
       </View>
     </View>
   );

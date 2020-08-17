@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { Text as RNText, View, StyleSheet, TextStyle } from "react-native";
+import { black, white, grey } from "../constants/Colors";
 
 interface TextProps {
   children: ReactNode;
@@ -11,12 +12,16 @@ interface TextProps {
     | "headline"
     | "body"
     | "subhead"
-    | "caption";
+    | "caption"
+    | "headerText";
   textProps?: TextProps;
+  color?: "white" | "grey";
 }
 
-const Text = ({ style, children, variant, textProps }: TextProps) => {
+const Text = ({ style, children, variant, textProps, color }: TextProps) => {
   let textStyle;
+  let textColor;
+
   switch (variant) {
     case "title":
       textStyle = styles.title;
@@ -39,12 +44,27 @@ const Text = ({ style, children, variant, textProps }: TextProps) => {
     case "caption":
       textStyle = styles.caption;
       break;
+    case "headerText":
+      textStyle = styles.headerText;
+      break;
     default:
       break;
   }
 
+  switch (color) {
+    case "white":
+      textColor = white;
+      break;
+    case "grey":
+      textColor = grey;
+      break;
+    default:
+      textColor = black;
+      break;
+  }
+
   return (
-    <RNText style={{ ...textStyle, ...style }} {...textProps}>
+    <RNText style={{ ...textStyle, color: textColor, ...style }} {...textProps}>
       {children}
     </RNText>
   );
@@ -58,7 +78,7 @@ Text.defaultProps = {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 30,
+    fontSize: 40,
     fontFamily: "SFProDisplay-Regular",
   },
   title1: {
@@ -84,5 +104,9 @@ const styles = StyleSheet.create({
   caption: {
     fontSize: 16,
     fontFamily: "SFProDisplay-Regular",
+  },
+  headerText: {
+    fontSize: 22,
+    fontFamily: "SFProDisplay-Bold",
   },
 });
