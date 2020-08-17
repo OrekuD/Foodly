@@ -40,3 +40,8 @@ export interface WalkthroughSlideProps {
   subtitle: string;
   image: ImageRequireSource;
 }
+
+export interface AppContext {
+  isLoggedIn: boolean;
+  setUserState: (state: boolean) => void;
+}

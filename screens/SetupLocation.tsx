@@ -8,11 +8,13 @@ import { Text } from "../components";
 import { width } from "../constants/Layout";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
+import { useAppContext } from "../context/Context";
 
 const SetupLocation = ({
   navigation,
 }: StackScreenProps<RootStackParamList, "SetupLocation">) => {
   const { top: paddingTop } = useSafeAreaInsets();
+  const { setUserState } = useAppContext();
   const textInputRef = createRef<TextInput>();
   return (
     <View style={{ ...styles.container, paddingTop }}>
@@ -48,7 +50,10 @@ const SetupLocation = ({
           placeholderTextColor={grey}
           style={styles.textInput}
           ref={textInputRef}
-          onSubmitEditing={() => navigation.navigate("Main")}
+          onSubmitEditing={() => {
+            navigation.navigate("Main");
+            setUserState(true);
+          }}
         />
       </TouchableOpacity>
     </View>

@@ -26,6 +26,7 @@ import {
   VerifyPhone,
   SetupLocation,
 } from "../screens";
+import { useAppContext } from "../context/Context";
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -98,6 +99,7 @@ const BottomTabNavigation = () => {
 };
 
 const RootNavigation = () => {
+  const { isLoggedIn } = useAppContext();
   return (
     <RootStack.Navigator
       headerMode="none"
@@ -105,13 +107,17 @@ const RootNavigation = () => {
         ...TransitionPresets.SlideFromRightIOS,
       }}
     >
-      <RootStack.Screen name="Walkthrough" component={Walkthrough} />
-      <RootStack.Screen name="SignIn" component={SignIn} />
-      <RootStack.Screen name="SignUp" component={SignUp} />
-      <RootStack.Screen name="ForgotPassword" component={ForgotPassword} />
-      <RootStack.Screen name="GetStarted" component={GetStarted} />
-      <RootStack.Screen name="VerifyPhone" component={VerifyPhone} />
-      <RootStack.Screen name="SetupLocation" component={SetupLocation} />
+      {!isLoggedIn && (
+        <>
+          <RootStack.Screen name="Walkthrough" component={Walkthrough} />
+          <RootStack.Screen name="SignIn" component={SignIn} />
+          <RootStack.Screen name="SignUp" component={SignUp} />
+          <RootStack.Screen name="ForgotPassword" component={ForgotPassword} />
+          <RootStack.Screen name="GetStarted" component={GetStarted} />
+          <RootStack.Screen name="VerifyPhone" component={VerifyPhone} />
+          <RootStack.Screen name="SetupLocation" component={SetupLocation} />
+        </>
+      )}
       <RootStack.Screen name="Main" component={BottomTabNavigation} />
     </RootStack.Navigator>
   );
