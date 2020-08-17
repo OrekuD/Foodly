@@ -1,13 +1,15 @@
-import React from "react";
+import React, { createRef } from "react";
 import { View, StyleSheet } from "react-native";
 import { white } from "../constants/Colors";
 import { StackHeader, Text, Button } from "../components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
+import PhoneInput from "react-native-phone-input";
 
 const GetStarted = ({
   navigation,
 }: StackScreenProps<RootStackParamList, "GetStarted">) => {
+  const phoneInputRef = createRef();
   return (
     <View style={styles.container}>
       <StackHeader title="Login to Foodly" onPress={navigation.goBack} />
@@ -36,6 +38,9 @@ const GetStarted = ({
         >
           phone number
         </Text>
+        <View style={styles.phoneInput}>
+          <PhoneInput ref={phoneInputRef} initialCountry="gh" />
+        </View>
         <Button
           label="sign up"
           onPress={() => navigation.navigate("VerifyPhone")}
@@ -55,5 +60,9 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 20,
+  },
+  phoneInput: {
+    marginTop: 10,
+    marginBottom: 40,
   },
 });
