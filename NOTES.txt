@@ -1,3 +1,4 @@
 export walkthrough images png
 check text properties, sizes, etc
 get semi bold font
+get facebook and google icons

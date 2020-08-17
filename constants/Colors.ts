@@ -1,6 +1,6 @@
 const green = "#22A45D";
 const black = "#010F07";
-const grey = "#868686";
+const grey = "#A3A3A3";
 const palewhite = "#22A45D";
 const white = "#FFFFFF";
 const orange = "#EF9920";

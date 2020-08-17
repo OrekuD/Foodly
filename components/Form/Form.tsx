@@ -5,12 +5,16 @@ import { Ionicons } from "@expo/vector-icons";
 import { green, grey } from "../../constants/Colors";
 import { boolean } from "yup";
 import Button from "../Buttons/Button";
+import SocialButton from "../Buttons/SocialButton";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../types";
 
 interface FormProps {
   signup?: boolean;
+  navigation?: StackNavigationProp<RootStackParamList, "SignIn" | "SignUp">;
 }
 
-const Form = ({ signup }: FormProps) => {
+const Form = ({ signup, navigation }: FormProps) => {
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 
   return (
@@ -72,7 +76,10 @@ const Form = ({ signup }: FormProps) => {
         </View>
       </View>
       {!signup && (
-        <TouchableOpacity activeOpacity={0.8}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => navigation?.navigate("ForgotPassword")}
+        >
           <Text variant="caption" color="grey" style={{ alignSelf: "center" }}>
             Forgot Password?
           </Text>
@@ -82,16 +89,27 @@ const Form = ({ signup }: FormProps) => {
         <Button label={signup ? "sign up" : "sign in"} onPress={() => {}} />
       </View>
       {signup ? (
-        <View></View>
+        <Text
+          variant="body"
+          color="grey"
+          style={{ width: "80%", textAlign: "center", alignSelf: "center" }}
+        >
+          By signing up, you agree to our Terms Conditions & Privacy Policy
+        </Text>
       ) : (
         <View style={styles.row}>
           <Text variant="caption" color="grey">
             Don't have an account?
           </Text>
-          <Text variant="caption" color="green">
-            {" "}
-            Create new account
-          </Text>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation?.navigate("SignUp")}
+          >
+            <Text variant="caption" color="green">
+              {" "}
+              Create new account
+            </Text>
+          </TouchableOpacity>
         </View>
       )}
       <Text
@@ -101,6 +119,8 @@ const Form = ({ signup }: FormProps) => {
       >
         Or
       </Text>
+      <SocialButton variant="facebook" navigation={navigation} />
+      <SocialButton variant="google" navigation={navigation} />
     </View>
   );
 };

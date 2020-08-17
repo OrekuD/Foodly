@@ -1,5 +1,5 @@
-import * as React from "react";
-import { View, StyleSheet } from "react-native";
+import React from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
 import { StackHeader, Text, Form } from "../components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
@@ -9,7 +9,7 @@ const SignIn = ({
   navigation,
 }: StackScreenProps<RootStackParamList, "SignIn">) => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <StackHeader title="Sign In" onPress={navigation.goBack} />
       <View style={styles.content}>
         <Text variant="title">Welcome to Foodly</Text>
@@ -21,9 +21,9 @@ const SignIn = ({
           Enter your Phone number or email address to sign in. Enjoy your food
           :)
         </Text>
-        <Form />
+        <Form navigation={navigation} />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
