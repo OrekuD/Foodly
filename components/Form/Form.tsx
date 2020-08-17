@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import Text from "../Text";
 import { Ionicons } from "@expo/vector-icons";
-import { green, grey } from "../../constants/Colors";
+import { green, grey, lightgrey } from "../../constants/Colors";
 import { boolean } from "yup";
 import Button from "../Buttons/Button";
 import SocialButton from "../Buttons/SocialButton";
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderBottomWidth: 2,
-    borderBottomColor: "#eeeeee",
+    borderBottomColor: lightgrey,
     paddingRight: 5,
     paddingTop: 10,
   },

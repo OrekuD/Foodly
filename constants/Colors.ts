@@ -6,5 +6,16 @@ const white = "#FFFFFF";
 const orange = "#EF9920";
 const blue = "#4285F4";
 const deepblue = "#395998";
+const lightgrey = "#eeeeee";
 
-export { green, black, grey, palewhite, white, orange, blue, deepblue };
+export {
+  green,
+  black,
+  grey,
+  palewhite,
+  white,
+  orange,
+  blue,
+  deepblue,
+  lightgrey,
+};

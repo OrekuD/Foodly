@@ -32,6 +32,12 @@ export type SearchStackParamList = {
 
 export type ProfileStackParamList = {
   Profile: undefined;
+  ChangePassword: undefined;
+  PaymentMethods: undefined;
+  Locations: undefined;
+  AddSocialAccount: undefined;
+  ProfileInformation: undefined;
+  ReferFriends: undefined;
 };
 
 export interface WalkthroughSlideProps {
@@ -44,4 +50,12 @@ export interface WalkthroughSlideProps {
 export interface AppContext {
   isLoggedIn: boolean;
   setUserState: (state: boolean) => void;
+}
+
+export interface AccountSetting {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: React.ReactNode;
+  screen: keyof ProfileStackParamList;
 }

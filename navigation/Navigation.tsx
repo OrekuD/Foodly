@@ -27,6 +27,8 @@ import {
   SetupLocation,
 } from "../screens";
 import { useAppContext } from "../context/Context";
+import { Ionicons } from "@expo/vector-icons";
+import { green, grey } from "../constants/Colors";
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -89,11 +91,60 @@ const SearchNavigation = () => {
 
 const BottomTabNavigation = () => {
   return (
-    <BottomTab.Navigator>
-      <BottomTab.Screen name="Home" component={HomeNavigation} />
-      <BottomTab.Screen name="Search" component={SearchNavigation} />
-      <BottomTab.Screen name="Orders" component={OrdersNavigation} />
-      <BottomTab.Screen name="Profile" component={ProfileNavigation} />
+    <BottomTab.Navigator
+      tabBarOptions={{
+        keyboardHidesTabBar: true,
+        style: {
+          height: 70,
+        },
+        labelStyle: {
+          fontFamily: "SFProDisplay-Regular",
+          fontSize: 16,
+          marginBottom: 5,
+        },
+        activeTintColor: green,
+        inactiveTintColor: grey,
+        iconStyle: {
+          marginTop: 5,
+        },
+      }}
+    >
+      <BottomTab.Screen
+        name="Home"
+        component={HomeNavigation}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-search" size={26} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Search"
+        component={SearchNavigation}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-search" size={26} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Orders"
+        component={OrdersNavigation}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-search" size={26} color={color} />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Profile"
+        component={ProfileNavigation}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="ios-search" size={26} color={color} />
+          ),
+        }}
+      />
     </BottomTab.Navigator>
   );
 };

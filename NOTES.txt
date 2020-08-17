@@ -1,5 +1,6 @@
 export walkthrough images png
 check text properties, sizes, etc
-get semi bold font
+get sf pro semi bold, medium font
 get facebook and google icons
 install expo-location
+update tabbar icons
