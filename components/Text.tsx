@@ -1,8 +1,14 @@
 import React, { ReactNode } from "react";
-import { Text as RNText, View, StyleSheet, TextStyle } from "react-native";
+import {
+  Text as RNText,
+  View,
+  StyleSheet,
+  TextStyle,
+  TextProps,
+} from "react-native";
 import { black, white, grey, green } from "../constants/Colors";
 
-interface TextProps {
+interface Props extends TextProps {
   children: ReactNode;
   style?: TextStyle;
   variant:
@@ -14,11 +20,10 @@ interface TextProps {
     | "subhead"
     | "caption"
     | "headerText";
-  textProps?: TextProps;
   color?: "white" | "grey" | "green";
 }
 
-const Text = ({ style, children, variant, textProps, color }: TextProps) => {
+const Text = ({ style, children, variant, color, numberOfLines }: Props) => {
   let textStyle;
   let textColor;
 
@@ -67,7 +72,10 @@ const Text = ({ style, children, variant, textProps, color }: TextProps) => {
   }
 
   return (
-    <RNText style={{ ...textStyle, color: textColor, ...style }} {...textProps}>
+    <RNText
+      style={{ ...textStyle, color: textColor, ...style }}
+      {...{ numberOfLines }}
+    >
       {children}
     </RNText>
   );
@@ -89,8 +97,8 @@ const styles = StyleSheet.create({
     fontFamily: "SFProDisplay-Regular",
   },
   title2: {
-    fontSize: 24,
-    fontFamily: "SFProDisplay-Regular",
+    fontSize: 30,
+    fontFamily: "SFProDisplay-Bold",
   },
   headline: {
     fontSize: 36,
