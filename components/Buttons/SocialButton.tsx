@@ -1,10 +1,11 @@
 import React from "react";
 import { View, StyleSheet, ViewStyle, Text } from "react-native";
 import { width } from "../../constants/Layout";
-import { green, white, deepblue, blue } from "../../constants/Colors";
+import { green, white, deepblue, blue, grey } from "../../constants/Colors";
 import { RectButton } from "react-native-gesture-handler";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";
+import { Facebook, Google } from "../Svgs";
 
 interface SocialButtonProps {
   onPress: () => void;
@@ -21,7 +22,13 @@ const SocialButton = ({ onPress, variant, navigation }: SocialButtonProps) => {
         backgroundColor: variant === "facebook" ? deepblue : blue,
       }}
     >
-      <View style={styles.iconContainer}></View>
+      <View style={styles.iconContainer}>
+        {variant === "facebook" ? (
+          <Facebook size={20} color={deepblue} />
+        ) : (
+          <Google size={20} />
+        )}
+      </View>
       <Text style={styles.text}>
         {`Connect with ${variant === "facebook" ? "facebook" : "google"}`}
       </Text>

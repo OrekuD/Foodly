@@ -61,3 +61,8 @@ export interface AccountSetting {
   icon: React.ReactNode;
   screen: keyof ProfileStackParamList;
 }
+
+export interface SvgProps {
+  size: number;
+  color?: string;
+}
