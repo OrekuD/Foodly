@@ -4,7 +4,7 @@ import { useAppContext } from "../../context/Context";
 import { StackScreenProps } from "@react-navigation/stack";
 import { ProfileStackParamList } from "../../types";
 import { white, lightgrey } from "../../constants/Colors";
-import { StackHeader, Text, Button } from "../../components";
+import { StackHeader, Text, Button, TransparentButton } from "../../components";
 import { width } from "../../constants/Layout";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -77,7 +77,7 @@ const ReferFriends = ({
       </View>
       <View style={{ ...styles.buttons, paddingBottom: bottom }}>
         <Button label="email" />
-        <Button label="others" transparent onPress={shareProductDetails} />
+        <TransparentButton label="others" onPress={shareProductDetails} />
       </View>
     </View>
   );
