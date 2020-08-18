@@ -1,3 +1,2 @@
 check text properties, sizes, etc
-get facebook and google icons
-update tabbar icons
+linear interpolation

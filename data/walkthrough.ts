@@ -6,7 +6,7 @@ export const slides: WalkthroughSlideProps[] = [
     title: "All your favourites",
     subtitle:
       "Order from the best local restaurants with easy, on-demand delivery",
-    image: require("../assets/images/walkthrough/1.jpg"),
+    image: require("../assets/images/walkthrough/1.png"),
   },
   {
     id: "1",
