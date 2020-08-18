@@ -1,2 +1,3 @@
 check text properties, sizes, etc
 linear interpolation
+export payment methods png
