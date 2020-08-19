@@ -6,13 +6,16 @@ import { white } from "../constants/Colors";
 import { MainHeader, ProductCard } from "../components";
 import { products } from "../data/products";
 import { width } from "../constants/Layout";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Home = ({
   navigation,
 }: BottomTabScreenProps<BottomTabParamList, "Home">) => {
+  const { top: height } = useSafeAreaInsets();
   return (
-    <ScrollView>
-      <View style={styles.container}>
+    <>
+      <View style={{ height, backgroundColor: white }} />
+      <ScrollView style={styles.container}>
         <MainHeader />
         <ScrollView contentContainerStyle={{ flexDirection: "row" }}>
           <View style={{ marginHorizontal: (width * 0.1) / 3 }}>
@@ -30,8 +33,8 @@ const Home = ({
               })}
           </View>
         </ScrollView>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 };
 

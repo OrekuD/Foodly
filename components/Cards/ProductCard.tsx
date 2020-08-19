@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, ScrollView } from "react-native";
 import { Product } from "../../types";
 import { width } from "../../constants/Layout";
 import Text from "../Text";
-import { green, white } from "../../constants/Colors";
+import { green, white, grey } from "../../constants/Colors";
 import { Dollar, FastClock } from "../Svgs";
 
 interface ProductCardProps {
   item: Product;
 }
 
-const ratios = [1.4, 1.6, 1.8];
+const ratios = [1.2, 1.4, 1.6, 1.8];
 
 const CARD_WIDTH = width * 0.45;
 
@@ -21,7 +21,7 @@ const HomeCard = ({ item }: ProductCardProps) => {
     CARD_WIDTH * ratios[Math.floor(Math.random() * ratios.length)];
 
   return (
-    <View style={{ ...styles.container, height: CARD_HEIGHT + 80 }}>
+    <View style={{ ...styles.container, height: CARD_HEIGHT + 60 }}>
       <View style={{ ...styles.imageContainer, height: CARD_HEIGHT }}>
         <Image source={image} resizeMode="cover" style={{ ...styles.image }} />
         <View style={styles.overlay}>
@@ -49,14 +49,30 @@ const HomeCard = ({ item }: ProductCardProps) => {
       <Text variant="cardText" style={{ marginVertical: 5 }} numberOfLines={1}>
         {name}
       </Text>
-      <Text
-        variant="body"
-        color="darkgrey"
-        style={{ marginVertical: 5 }}
-        numberOfLines={1}
+      <View
+        style={{
+          flexDirection: "row",
+          overflow: "hidden",
+          alignItems: "center",
+        }}
       >
-        {tags[0]}
-      </Text>
+        {tags.map((tag, index) => {
+          return (
+            <>
+              <Text
+                key={tag}
+                variant="body"
+                color="darkgrey"
+                style={{ marginVertical: 5 }}
+                numberOfLines={1}
+              >
+                {tag}
+              </Text>
+              {index !== tags.length - 1 && <View style={styles.dot} />}
+            </>
+          );
+        })}
+      </View>
     </View>
   );
 };
@@ -68,6 +84,7 @@ const styles = StyleSheet.create({
     width: CARD_WIDTH,
     overflow: "hidden",
     marginBottom: 20,
+    // backgroundColor: "red",
   },
   imageContainer: {
     width: "100%",
@@ -105,5 +122,13 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  dot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: grey,
+    marginHorizontal: 5,
+    marginTop: 5,
   },
 });

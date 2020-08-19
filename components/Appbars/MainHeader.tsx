@@ -9,9 +9,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 interface MainHeaderProps {}
 
 const MainHeader = (props: MainHeaderProps) => {
-  const { top: paddingTop } = useSafeAreaInsets();
   return (
-    <View style={{ ...styles.container, paddingTop }}>
+    <View style={styles.container}>
       <Text
         variant="title1"
         color="grey"
@@ -41,7 +40,7 @@ export default MainHeader;
 
 const styles = StyleSheet.create({
   container: {
-    height: 110,
+    height: 80,
     width: width,
     borderBottomWidth: 1,
     borderBottomColor: lightgrey,
