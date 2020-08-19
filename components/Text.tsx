@@ -93,7 +93,7 @@ Text.defaultProps = {
 const styles = StyleSheet.create({
   title: {
     fontSize: 40,
-    fontFamily: "SFProDisplay-Regular",
+    fontFamily: "SFProDisplay-Medium",
   },
   title1: {
     fontSize: 28,
@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
   body: {
     fontSize: 22,
     fontFamily: "SFProDisplay-Regular",
-    // lineHeight: 32,
   },
   subhead: {
     fontSize: 20,

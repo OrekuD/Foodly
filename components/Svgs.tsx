@@ -30,7 +30,7 @@ export function Share({ size, color }: SvgProps) {
 
 export function Food({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 12 17" fill="none">
+    <Svg width={size} height={size * 1.42} viewBox="0 0 12 17" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -43,7 +43,7 @@ export function Food({ size, color }: SvgProps) {
 
 export function Lock({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 14 16" fill="none">
+    <Svg width={size} height={size * 1.14} viewBox="0 0 14 16" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -56,7 +56,7 @@ export function Lock({ size, color }: SvgProps) {
 
 export function Fire({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 10 16" fill="none">
+    <Svg width={size} height={size * 1.6} viewBox="0 0 10 16" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -69,7 +69,7 @@ export function Fire({ size, color }: SvgProps) {
 
 export function FastClock({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 20 12" fill="none">
+    <Svg width={size} height={size * 0.6} viewBox="0 0 20 12" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -134,7 +134,7 @@ export function Logout({ size, color }: SvgProps) {
 
 export function Marker({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 13 16" fill="none">
+    <Svg width={size} height={size * 1.23} viewBox="0 0 13 16" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -160,7 +160,7 @@ export function MarkerArrow({ size, color }: SvgProps) {
 
 export function Orderlist({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 16 18" fill="none">
+    <Svg width={size} height={size * 1.125} viewBox="0 0 16 18" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -171,7 +171,7 @@ export function Orderlist({ size, color }: SvgProps) {
   );
 }
 
-export function Profile({ size, color }: SvgProps) {
+export function ProfileIcon({ size, color }: SvgProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 18 18" fill="none">
       <Path
@@ -186,7 +186,7 @@ export function Profile({ size, color }: SvgProps) {
 
 export function Camera({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 20 14" fill="none">
+    <Svg width={size} height={size * 0.7} viewBox="0 0 20 14" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -199,7 +199,7 @@ export function Camera({ size, color }: SvgProps) {
 
 export function Doucument({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 14 18" fill="none">
+    <Svg width={size} height={size * 1.29} viewBox="0 0 14 18" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -212,7 +212,7 @@ export function Doucument({ size, color }: SvgProps) {
 
 export function Facebook({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 8 14" fill="none">
+    <Svg width={size} height={size * 1.75} viewBox="0 0 8 14" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -225,7 +225,7 @@ export function Facebook({ size, color }: SvgProps) {
 
 export function Cart({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 16 17" fill="none">
+    <Svg width={size} height={size * 1.06} viewBox="0 0 16 17" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -238,7 +238,7 @@ export function Cart({ size, color }: SvgProps) {
 
 export function CloseEye({ size, color }: SvgProps) {
   return (
-    <Svg width={size} height={size} viewBox="0 0 14 12" fill="none">
+    <Svg width={size} height={size * 0.857} viewBox="0 0 14 12" fill="none">
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -280,6 +280,19 @@ export function Google({ size }: SvgProps) {
       <Path
         d="M419.404 58.936l-82.933 67.896C313.136 112.246 285.552 103.82 256 103.82c-66.729 0-123.429 42.957-143.965 102.724l-83.397-68.276h-.014C71.23 56.123 157.06 0 256 0c62.115 0 119.068 22.126 163.404 58.936z"
         fill="#f14336"
+      />
+    </Svg>
+  );
+}
+
+export function Notification({ size, color }: SvgProps) {
+  return (
+    <Svg width={size} height={size * 0.888} viewBox="0 0 18 16" fill="none">
+      <Path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3.157 10.061c0 1.366-1.122 2.472-2.505 2.472h16.696c-1.383 0-2.504-1.106-2.504-2.472v-4.12C14.844 2.757 12.227.175 9 .175c-3.227 0-5.843 2.582-5.843 5.768v4.12zM9 15.826c.86 0 1.655-.626 2.087-1.642H6.913C7.345 15.201 8.14 15.826 9 15.826z"
+        fill={color}
       />
     </Svg>
   );

@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 20,
+    alignItems: "center",
   },
   image: {
     width: IMAGE_SIZE,

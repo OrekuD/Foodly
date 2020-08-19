@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     backgroundColor: green,
   },
   text: {
-    fontFamily: "SFProDisplay-Bold",
+    fontFamily: "SFProDisplay-SemiBold",
     textTransform: "uppercase",
     fontSize: 18,
     letterSpacing: 1.2,

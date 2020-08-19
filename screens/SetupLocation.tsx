@@ -9,6 +9,7 @@ import { width } from "../constants/Layout";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
 import { useAppContext } from "../context/Context";
+import { MarkerArrow, Marker } from "../components/Svgs";
 
 const SetupLocation = ({
   navigation,
@@ -29,7 +30,7 @@ const SetupLocation = ({
         restaurants near you
       </Text>
       <TouchableOpacity activeOpacity={0.8} style={styles.locationButton}>
-        <Ionicons name="ios-navigate" size={30} color={green} />
+        <MarkerArrow size={20} color={green} />
         <Text variant="body" color="green" style={{ marginLeft: 20 }}>
           Use current location
         </Text>
@@ -39,12 +40,9 @@ const SetupLocation = ({
         activeOpacity={0.8}
         style={styles.addressButton}
       >
-        <Ionicons
-          name="ios-pin"
-          size={20}
-          color={grey}
-          style={{ marginHorizontal: 20, marginTop: 1 }}
-        />
+        <View style={{ marginHorizontal: 20, marginTop: 1 }}>
+          <Marker size={20} color={grey} />
+        </View>
         <TextInput
           placeholder="Enter a new address"
           placeholderTextColor={grey}

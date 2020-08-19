@@ -4,8 +4,17 @@ import { AccountSetting, ProfileStackParamList } from "../../types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Text, SettingsCard, NotificationSettingsCard } from "../../components";
 import { white, grey, darkgrey } from "../../constants/Colors";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import { StackScreenProps } from "@react-navigation/stack";
+import {
+  ProfileIcon,
+  Lock,
+  Marker,
+  Facebook,
+  Share,
+  Logout,
+  Doucument,
+} from "../../components/Svgs";
 
 const Profile = ({
   navigation,
@@ -17,42 +26,42 @@ const Profile = ({
       id: "0",
       title: "Profile Information",
       subtitle: "Change your account information",
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <ProfileIcon size={18} color={darkgrey} />,
       screen: "ProfileInformation",
     },
     {
       id: "1",
       title: "Change Password",
       subtitle: "Change your password",
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <Lock size={18} color={darkgrey} />,
       screen: "ChangePassword",
     },
     {
       id: "2",
       title: "Payment Methods",
       subtitle: "Add your credit & debit cards",
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <Ionicons name="ios-search" size={22} color={darkgrey} />,
       screen: "PaymentMethods",
     },
     {
       id: "3",
       title: "Locations",
       subtitle: "Add or remove your delivery locations",
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <Marker size={18} color={darkgrey} />,
       screen: "Locations",
     },
     {
       id: "4",
       title: "Add Social Account",
       subtitle: "Add Facebook, Twitter, etc",
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <Facebook size={14} color={darkgrey} />,
       screen: "AddSocialAccount",
     },
     {
       id: "5",
       title: "Refer to Friends",
       subtitle: "Get $10 for reffering friends",
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <Share size={20} color={darkgrey} />,
       screen: "ReferFriends",
     },
   ];
@@ -85,19 +94,19 @@ const Profile = ({
       subtitle: `Rate us on ${
         Platform.OS === "android" ? "PlayStore" : "AppStore"
       }`,
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <FontAwesome name="star" size={24} color={darkgrey} />,
     },
     {
       id: "1",
       title: "FAQ",
       subtitle: "Frequently asked questions",
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <Doucument size={18} color={darkgrey} />,
     },
     {
       id: "2",
       title: "Logout",
       subtitle: "",
-      icon: <Ionicons name="ios-search" size={24} color={darkgrey} />,
+      icon: <Logout size={22} color={darkgrey} />,
     },
   ];
 

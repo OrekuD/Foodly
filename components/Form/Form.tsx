@@ -8,6 +8,7 @@ import Button from "../Buttons/Button";
 import SocialButton from "../Buttons/SocialButton";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";
+import { Eye, CloseEye } from "../Svgs";
 
 interface FormProps {
   signup?: boolean;
@@ -61,9 +62,9 @@ const Form = ({ signup, navigation }: FormProps) => {
             onPress={() => setPasswordVisible(!passwordVisible)}
           >
             {passwordVisible ? (
-              <Ionicons name="ios-eye" size={20} color={grey} />
+              <Eye size={20} color={grey} />
             ) : (
-              <Ionicons name="ios-eye-off" size={20} color={grey} />
+              <CloseEye size={20} color={grey} />
             )}
           </TouchableOpacity>
         </View>

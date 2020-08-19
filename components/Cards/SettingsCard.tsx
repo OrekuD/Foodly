@@ -4,7 +4,7 @@ import { AccountSetting, ProfileStackParamList } from "../../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 import Text from "../Text";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { black, lightgrey } from "../../constants/Colors";
+import { black, lightgrey, darkgrey } from "../../constants/Colors";
 import { width } from "../../constants/Layout";
 
 interface SettingsCardProps {
@@ -22,7 +22,7 @@ const SettingsCard = ({ item, navigation, last, more }: SettingsCardProps) => {
       onPress={() => !more && navigation.navigate(screen)}
       style={styles.container}
     >
-      {icon}
+      <View style={styles.iconContainer}>{icon}</View>
       <View style={{ ...styles.content, borderBottomWidth: last ? 0 : 1 }}>
         <View style={styles.textContent}>
           <Text
@@ -37,7 +37,13 @@ const SettingsCard = ({ item, navigation, last, more }: SettingsCardProps) => {
             </Text>
           )}
         </View>
-        <MaterialCommunityIcons name="chevron-right" size={34} color={black} />
+        <View style={styles.iconContainer}>
+          <MaterialCommunityIcons
+            name="chevron-right"
+            size={34}
+            color={darkgrey}
+          />
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -52,19 +58,22 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 20,
   },
   content: {
+    flex: 1,
     flexDirection: "row",
     borderBottomColor: lightgrey,
-    marginLeft: 20,
     alignItems: "center",
-    paddingRight: 10,
   },
   textContent: {
     flex: 1,
     height: "100%",
     justifyContent: "space-evenly",
     paddingVertical: 1,
+  },
+  iconContainer: {
+    width: 60,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

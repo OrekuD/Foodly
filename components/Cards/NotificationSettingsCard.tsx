@@ -4,6 +4,7 @@ import Text from "../Text";
 import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import { black, lightgrey, grey, darkgrey } from "../../constants/Colors";
 import { width } from "../../constants/Layout";
+import { Notification } from "../Svgs";
 
 interface NotificationSettingsCardProps {
   item: {
@@ -24,7 +25,9 @@ const NotificationSettingsCard = ({
 
   return (
     <View style={styles.container}>
-      <Ionicons name="ios-notifications" size={30} color={darkgrey} />
+      <View style={styles.iconContainer}>
+        <Notification size={22} color={darkgrey} />
+      </View>
       <View style={{ ...styles.content, borderBottomWidth: last ? 0 : 1 }}>
         <View style={styles.textContent}>
           <Text variant="subhead">{title}</Text>
@@ -32,7 +35,9 @@ const NotificationSettingsCard = ({
             {subtitle}
           </Text>
         </View>
-        <Switch value={value} onValueChange={() => setValue(!value)} />
+        <View style={{ ...styles.iconContainer, width: 75 }}>
+          <Switch value={value} onValueChange={() => setValue(!value)} />
+        </View>
       </View>
     </View>
   );
@@ -44,23 +49,25 @@ const styles = StyleSheet.create({
   container: {
     width: width,
     height: 65,
-    // backgroundColor: "aqua",
     marginBottom: 20,
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 20,
   },
   content: {
+    flex: 1,
     flexDirection: "row",
     borderBottomColor: lightgrey,
-    marginLeft: 20,
     alignItems: "center",
-    paddingRight: 10,
   },
   textContent: {
     flex: 1,
     height: "100%",
     justifyContent: "space-evenly",
     paddingVertical: 1,
+  },
+  iconContainer: {
+    width: 60,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

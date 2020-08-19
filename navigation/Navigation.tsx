@@ -33,8 +33,9 @@ import {
   ReferFriends,
 } from "../screens";
 import { useAppContext } from "../context/Context";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, AntDesign, Feather } from "@expo/vector-icons";
 import { green, grey } from "../constants/Colors";
+import { Food, ProfileIcon, Orderlist } from "../components/Svgs";
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -135,9 +136,7 @@ const BottomTabNavigation = () => {
         name="Home"
         component={HomeNavigation}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-search" size={26} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Food size={22} color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -145,7 +144,7 @@ const BottomTabNavigation = () => {
         component={SearchNavigation}
         options={{
           tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-search" size={26} color={color} />
+            <Feather name="search" size={22} color={color} />
           ),
         }}
       />
@@ -153,18 +152,14 @@ const BottomTabNavigation = () => {
         name="Orders"
         component={OrdersNavigation}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-search" size={26} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <Orderlist size={22} color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Profile"
         component={ProfileNavigation}
         options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-search" size={26} color={color} />
-          ),
+          tabBarIcon: ({ color }) => <ProfileIcon size={22} color={color} />,
         }}
       />
     </BottomTab.Navigator>
