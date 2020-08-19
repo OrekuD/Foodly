@@ -143,5 +143,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 24,
     fontFamily: "SFProDisplay-Bold",
+    backgroundColor: white,
+    elevation: 0.5,
   },
 });

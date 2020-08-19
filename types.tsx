@@ -20,6 +20,7 @@ export type BottomTabParamList = {
 
 export type HomeStackParamList = {
   Home: undefined;
+  Product: undefined;
 };
 
 export type OrdersStackParamList = {
@@ -75,4 +76,5 @@ export interface Product {
   tags: string[];
   time: string;
   image: ImageRequireSource;
+  aspectRatio?: number;
 }

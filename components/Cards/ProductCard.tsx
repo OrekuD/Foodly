@@ -1,27 +1,39 @@
 import React, { useEffect } from "react";
-import { View, StyleSheet, Image, ScrollView } from "react-native";
-import { Product } from "../../types";
+import {
+  View,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import { Product, BottomTabParamList, HomeStackParamList } from "../../types";
 import { width } from "../../constants/Layout";
 import Text from "../Text";
 import { green, white, grey } from "../../constants/Colors";
 import { Dollar, FastClock } from "../Svgs";
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 interface ProductCardProps {
   item: Product;
+  navigation: StackNavigationProp<HomeStackParamList, "Home">;
 }
 
-const ratios = [1.2, 1.4, 1.6, 1.8];
+const ratios = [1.2, 1.4, 1.6, 1.8, 2];
 
 const CARD_WIDTH = width * 0.45;
 
-const HomeCard = ({ item }: ProductCardProps) => {
-  const { name, price, image, rating, tags, time } = item;
+const HomeCard = ({ item, navigation }: ProductCardProps) => {
+  const { name, price, image, rating, tags, time, aspectRatio } = item;
 
-  const CARD_HEIGHT =
-    CARD_WIDTH * ratios[Math.floor(Math.random() * ratios.length)];
+  const CARD_HEIGHT = CARD_WIDTH * aspectRatio;
 
   return (
-    <View style={{ ...styles.container, height: CARD_HEIGHT + 60 }}>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      style={{ ...styles.container, height: CARD_HEIGHT + 60 }}
+      onPress={() => navigation.navigate("Product")}
+    >
       <View style={{ ...styles.imageContainer, height: CARD_HEIGHT }}>
         <Image source={image} resizeMode="cover" style={{ ...styles.image }} />
         <View style={styles.overlay}>
@@ -46,21 +58,17 @@ const HomeCard = ({ item }: ProductCardProps) => {
           </View>
         </View>
       </View>
-      <Text variant="cardText" style={{ marginVertical: 5 }} numberOfLines={1}>
+      <Text variant="cardText" style={{ marginVertical: 3 }} numberOfLines={1}>
         {name}
       </Text>
-      <View
-        style={{
-          flexDirection: "row",
-          overflow: "hidden",
-          alignItems: "center",
-        }}
-      >
+      <View style={styles.tags}>
         {tags.map((tag, index) => {
           return (
-            <>
+            <View
+              key={index}
+              style={{ flexDirection: "row", alignItems: "center" }}
+            >
               <Text
-                key={tag}
                 variant="body"
                 color="darkgrey"
                 style={{ marginVertical: 5 }}
@@ -69,11 +77,11 @@ const HomeCard = ({ item }: ProductCardProps) => {
                 {tag}
               </Text>
               {index !== tags.length - 1 && <View style={styles.dot} />}
-            </>
+            </View>
           );
         })}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -84,7 +92,6 @@ const styles = StyleSheet.create({
     width: CARD_WIDTH,
     overflow: "hidden",
     marginBottom: 20,
-    // backgroundColor: "red",
   },
   imageContainer: {
     width: "100%",
@@ -130,5 +137,9 @@ const styles = StyleSheet.create({
     backgroundColor: grey,
     marginHorizontal: 5,
     marginTop: 5,
+  },
+  tags: {
+    flexDirection: "row",
+    overflow: "hidden",
   },
 });

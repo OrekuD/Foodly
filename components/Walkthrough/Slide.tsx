@@ -1,21 +1,29 @@
-import * as React from "react";
+import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 import { WalkthroughSlideProps } from "../../types";
 import { width } from "../../constants/Layout";
-import { white, grey } from "../../constants/Colors";
+import { white, grey, lightgrey } from "../../constants/Colors";
 import Text from "../Text";
 
 interface SlideProps {
   slide: WalkthroughSlideProps;
+  first: boolean;
 }
 
 const IMAGE_SIZE = width * 0.85;
 
-const Slide = ({ slide }: SlideProps) => {
+const Slide = ({ slide, first }: SlideProps) => {
   const { title, subtitle, image } = slide;
   return (
     <View style={styles.container}>
-      <Image source={image} style={styles.image} resizeMode="contain" />
+      <View
+        style={{
+          ...styles.imageContainer,
+          backgroundColor: first ? lightgrey : "transparent",
+        }}
+      >
+        <Image source={image} style={styles.image} resizeMode="contain" />
+      </View>
       <Text variant="headline"> {title}</Text>
       <Text
         variant="body"
@@ -37,9 +45,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-evenly",
   },
+  imageContainer: {
+    width: IMAGE_SIZE,
+    height: IMAGE_SIZE,
+    borderRadius: IMAGE_SIZE / 2,
+    marginVertical: 70,
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+  },
   image: {
     width: IMAGE_SIZE,
     height: IMAGE_SIZE,
-    marginVertical: 70,
   },
 });

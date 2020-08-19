@@ -31,6 +31,7 @@ import {
   ProfileInformation,
   AddSocialAccount,
   ReferFriends,
+  Product,
 } from "../screens";
 import { useAppContext } from "../context/Context";
 import { Feather } from "@expo/vector-icons";
@@ -53,6 +54,7 @@ const HomeNavigation = () => {
       }}
     >
       <HomeStack.Screen name="Home" component={Home} />
+      <HomeStack.Screen name="Product" component={Product} />
     </HomeStack.Navigator>
   );
 };

@@ -1,38 +1,37 @@
 import React, { useEffect } from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import { BottomTabParamList } from "../types";
+import { BottomTabParamList, HomeStackParamList } from "../types";
 import { white } from "../constants/Colors";
 import { MainHeader, ProductCard } from "../components";
 import { products } from "../data/products";
 import { width } from "../constants/Layout";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { StackScreenProps } from "@react-navigation/stack";
 
-const Home = ({
-  navigation,
-}: BottomTabScreenProps<BottomTabParamList, "Home">) => {
+const Home = ({ navigation }: StackScreenProps<HomeStackParamList, "Home">) => {
   const { top: height } = useSafeAreaInsets();
   return (
     <>
       <View style={{ height, backgroundColor: white }} />
       <ScrollView style={styles.container}>
         <MainHeader />
-        <ScrollView contentContainerStyle={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row", paddingVertical: 10 }}>
           <View style={{ marginHorizontal: (width * 0.1) / 3 }}>
             {products
               .slice(0, Math.floor(products.length / 2))
-              .map((item, index) => {
-                return <ProductCard key={index} item={item} />;
-              })}
+              .map((item, index) => (
+                <ProductCard navigation={navigation} key={index} item={item} />
+              ))}
           </View>
           <View style={{ marginRight: (width * 0.1) / 3 }}>
             {products
-              .slice(Math.floor(products.length / 2), products.length - 1)
-              .map((item, index) => {
-                return <ProductCard key={index} item={item} />;
-              })}
+              .slice(Math.floor(products.length / 2), products.length)
+              .map((item, index) => (
+                <ProductCard navigation={navigation} key={index} item={item} />
+              ))}
           </View>
-        </ScrollView>
+        </View>
       </ScrollView>
     </>
   );

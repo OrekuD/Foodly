@@ -87,7 +87,10 @@ const Form = ({ signup, navigation }: FormProps) => {
         </TouchableOpacity>
       )}
       <View style={styles.buttonContainer}>
-        <Button label={signup ? "sign up" : "sign in"} onPress={() => {}} />
+        <Button
+          label={signup ? "sign up" : "sign in"}
+          onPress={() => navigation?.navigate("GetStarted")}
+        />
       </View>
       {signup ? (
         <Text

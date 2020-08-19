@@ -27,7 +27,7 @@ const Walkthrough = ({
           )}
         >
           {slides.map((slide, index) => {
-            return <Slide key={index} slide={slide} />;
+            return <Slide key={index} first={index === 0} slide={slide} />;
           })}
         </Animated.ScrollView>
       </View>
@@ -47,7 +47,7 @@ const Walkthrough = ({
             <Animated.View
               key={index}
               style={{ ...styles.pageIndicator, opacity }}
-            ></Animated.View>
+            />
           );
         })}
       </View>
