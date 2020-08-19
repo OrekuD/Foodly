@@ -69,7 +69,7 @@ export const featuredProducts: Product[] = [
     name: "McDonald's",
     tags: ["Chinese", "American"],
     price: 0,
-    image: require("../assets/images/products/9.jpg"),
+    image: require("../assets/images/products/8.jpg"),
     time: "25min",
     rating: 4.5,
   },

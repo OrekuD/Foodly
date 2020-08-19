@@ -1,5 +1,10 @@
 export { Button, TransparentButton, SocialButton } from "./Buttons";
-export { SettingsCard, NotificationSettingsCard, ProductCard } from "./Cards";
+export {
+  SettingsCard,
+  NotificationSettingsCard,
+  ProductCard,
+  HomeCard,
+} from "./Cards";
 export { StackHeader, MainHeader } from "./Appbars";
 export { default as Form } from "./Form/Form";
 export { default as Text } from "./Text";
