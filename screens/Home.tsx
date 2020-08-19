@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { View, StyleSheet, ScrollView, Animated } from "react-native";
+import { View, StyleSheet, ScrollView, Animated, Image } from "react-native";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { BottomTabParamList, HomeStackParamList } from "../types";
 import { white } from "../constants/Colors";
@@ -34,10 +34,23 @@ const Home = ({ navigation }: StackScreenProps<HomeStackParamList, "Home">) => {
           </Animated.ScrollView>
           <View style={styles.pagination}>
             {featuredProducts.map((_, index) => {
-              <Animated.View style={{ ...styles.dot }} />;
+              const inputRange = [
+                (index - 1) * width,
+                index * width,
+                (index + 1) * width,
+              ];
+
+              const opacity = scrollX.interpolate({
+                inputRange,
+                outputRange: [0.5, 1, 0.5],
+                extrapolate: "clamp",
+              });
+
+              return <Animated.View style={{ ...styles.dot, opacity }} />;
             })}
           </View>
         </View>
+
         <View style={{ flexDirection: "row", paddingVertical: 10 }}>
           <View style={{ marginHorizontal: (width * 0.1) / 3 }}>
             {products
@@ -53,6 +66,13 @@ const Home = ({ navigation }: StackScreenProps<HomeStackParamList, "Home">) => {
                 <ProductCard navigation={navigation} key={index} item={item} />
               ))}
           </View>
+        </View>
+        <View style={styles.discountContainer}>
+          <Image
+            source={require("../assets/images/Banner.png")}
+            resizeMode="contain"
+            style={{ height: "100%", width: width * 0.9 }}
+          />
         </View>
       </ScrollView>
     </>
@@ -76,14 +96,23 @@ const styles = StyleSheet.create({
     bottom: 20,
     width: "100%",
     height: 20,
-    // backgroundColor: "blue",
+    flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
   },
   dot: {
     marginHorizontal: 3,
     width: 8,
-    height: 8,
+    height: 4,
     borderRadius: 4,
-    backgroundColor: "purple",
+    backgroundColor: white,
+  },
+  discountContainer: {
+    width: width,
+    height: 210,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+    // backgroundColor: "red",
   },
 });

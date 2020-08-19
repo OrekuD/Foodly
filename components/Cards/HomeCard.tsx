@@ -13,7 +13,10 @@ const HomeCard = ({ item }: HomeCardProps) => {
   const { image } = item;
   return (
     <View style={styles.container}>
-      <Image source={image} resizeMode="cover" style={styles.image} />
+      <View style={styles.imageContainer}>
+        <Image source={image} resizeMode="cover" style={styles.image} />
+        <View style={styles.overlay} />
+      </View>
     </View>
   );
 };
@@ -27,9 +30,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  image: {
+  imageContainer: {
     width: CARD_WIDTH,
     height: "90%",
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 10,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(1, 1, 1, 0.15)",
     borderRadius: 10,
   },
 });

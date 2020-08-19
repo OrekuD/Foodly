@@ -54,7 +54,7 @@ const Profile = ({
       id: "4",
       title: "Add Social Account",
       subtitle: "Add Facebook, Twitter, etc",
-      icon: <Facebook size={14} color={darkgrey} />,
+      icon: <Facebook size={12} color={darkgrey} />,
       screen: "AddSocialAccount",
     },
     {
