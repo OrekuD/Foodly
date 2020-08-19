@@ -19,7 +19,8 @@ interface Props extends TextProps {
     | "body"
     | "subhead"
     | "caption"
-    | "headerText";
+    | "headerText"
+    | "cardText";
   color?: "white" | "grey" | "green" | "darkgrey";
 }
 
@@ -51,6 +52,9 @@ const Text = ({ style, children, variant, color, numberOfLines }: Props) => {
       break;
     case "headerText":
       textStyle = styles.headerText;
+      break;
+    case "cardText":
+      textStyle = styles.cardText;
       break;
     default:
       break;
@@ -96,8 +100,8 @@ const styles = StyleSheet.create({
     fontFamily: "SFProDisplay-Medium",
   },
   title1: {
-    fontSize: 28,
-    fontFamily: "SFProDisplay-Regular",
+    fontSize: 16,
+    fontFamily: "SFProDisplay-SemiBold",
   },
   title2: {
     fontSize: 30,
@@ -122,5 +126,9 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
     fontFamily: "SFProDisplay-Bold",
+  },
+  cardText: {
+    fontSize: 22,
+    fontFamily: "SFProDisplay-SemiBold",
   },
 });

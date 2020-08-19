@@ -24,7 +24,7 @@ const SocialButton = ({ onPress, variant, navigation }: SocialButtonProps) => {
     >
       <View style={styles.iconContainer}>
         {variant === "facebook" ? (
-          <Facebook size={18} color={deepblue} />
+          <Facebook size={12} color={deepblue} />
         ) : (
           <Google size={16} />
         )}
@@ -41,7 +41,7 @@ export default SocialButton;
 const styles = StyleSheet.create({
   container: {
     width: width * 0.9,
-    height: 45,
+    height: 50,
     backgroundColor: green,
     flexDirection: "row",
     alignItems: "center",

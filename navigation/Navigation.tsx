@@ -33,7 +33,7 @@ import {
   ReferFriends,
 } from "../screens";
 import { useAppContext } from "../context/Context";
-import { Ionicons, AntDesign, Feather } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { green, grey } from "../constants/Colors";
 import { Food, ProfileIcon, Orderlist } from "../components/Svgs";
 
@@ -136,7 +136,7 @@ const BottomTabNavigation = () => {
         name="Home"
         component={HomeNavigation}
         options={{
-          tabBarIcon: ({ color }) => <Food size={22} color={color} />,
+          tabBarIcon: ({ color }) => <Food size={18} color={color} />,
         }}
       />
       <BottomTab.Screen
@@ -152,14 +152,14 @@ const BottomTabNavigation = () => {
         name="Orders"
         component={OrdersNavigation}
         options={{
-          tabBarIcon: ({ color }) => <Orderlist size={22} color={color} />,
+          tabBarIcon: ({ color }) => <Orderlist size={18} color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Profile"
         component={ProfileNavigation}
         options={{
-          tabBarIcon: ({ color }) => <ProfileIcon size={22} color={color} />,
+          tabBarIcon: ({ color }) => <ProfileIcon size={18} color={color} />,
         }}
       />
     </BottomTab.Navigator>

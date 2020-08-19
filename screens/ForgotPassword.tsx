@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
@@ -15,64 +15,70 @@ const ForgotPassword = ({
   return (
     <View style={styles.container}>
       <StackHeader title="Forgot Password" onPress={navigation.goBack} />
-      {isResetEmailSent ? (
-        <>
-          <Text variant="title">Reset email sent</Text>
-          <Text
-            variant="body"
-            color="grey"
-            style={{ marginTop: 5, width: "75%" }}
-          >
-            We have sent instructions to the email
-          </Text>
-          <View style={styles.buttonContainer}>
-            <Button label="reset password" onPress={() => {}} />
-          </View>
-          <View style={styles.row}>
-            {email}
-            <TouchableOpacity activeOpacity={0.8}>
-              <Text variant="body" color="green">
-                {" "}
-                We have sent instructions to the email
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.buttonContainer}>
-            <Button label="send again" onPress={() => {}} />
-          </View>
-        </>
-      ) : (
-        <>
-          <Text variant="title">Forgot password</Text>
-          <Text
-            variant="body"
-            color="grey"
-            style={{ marginVertical: 5, width: "75%" }}
-          >
-            Enter your email address and we will send you reset instuctions.
-          </Text>
-          <View style={styles.section}>
-            <Text
-              variant="caption"
-              style={{ textTransform: "uppercase", letterSpacing: 1 }}
-              color="grey"
-            >
-              email address
+      <View style={styles.content}>
+        {isResetEmailSent ? (
+          <View>
+            <Text variant="title" style={{ marginVertical: 5 }}>
+              Reset email sent
             </Text>
-            <View style={styles.textInputContainer}>
-              <TextInput
-                style={styles.textInput}
-                value={email}
-                onChangeText={(text) => setEmail(text)}
-              />
-              <Ionicons name="ios-checkmark" color={green} size={28} />
+            <Text variant="body" color="grey">
+              We have sent instructions to the email
+            </Text>
+            <View style={styles.row}>
+              <Text variant="body" color="grey">
+                {email}
+              </Text>
+              <TouchableOpacity activeOpacity={0.8}>
+                <Text variant="body" color="green">
+                  {" "}
+                  Having problem?
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button label="send again" onPress={() => {}} />
             </View>
           </View>
-          <View style={styles.buttonContainer}>
-            <Button label="reset password" onPress={() => {}} />
+        ) : (
+          <View>
+            <Text variant="title">Forgot password</Text>
+            <Text
+              variant="body"
+              color="grey"
+              style={{ marginVertical: 5, width: "75%" }}
+            >
+              Enter your email address and we will send you reset instuctions.
+            </Text>
+            <View style={styles.section}>
+              <Text
+                variant="caption"
+                style={{
+                  textTransform: "uppercase",
+                  letterSpacing: 1,
+                  marginTop: 10,
+                }}
+                color="grey"
+              >
+                email address
+              </Text>
+              <View style={styles.textInputContainer}>
+                <TextInput
+                  style={styles.textInput}
+                  value={email}
+                  onChangeText={(text) => setEmail(text)}
+                />
+                <Ionicons name="ios-checkmark" color={green} size={28} />
+              </View>
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button
+                label="reset password"
+                onPress={() => setIsResetEmailSent(true)}
+              />
+            </View>
           </View>
-        </>
-      )}
+        )}
+      </View>
     </View>
   );
 };

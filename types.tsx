@@ -66,3 +66,13 @@ export interface SvgProps {
   size: number;
   color?: string;
 }
+
+export interface Product {
+  id: string;
+  name: string;
+  rating: number;
+  price: number;
+  tags: string[];
+  time: string;
+  image: ImageRequireSource;
+}
