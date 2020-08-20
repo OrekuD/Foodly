@@ -32,7 +32,7 @@ const HomeCard = ({ item, navigation }: ProductCardProps) => {
     <TouchableOpacity
       activeOpacity={0.9}
       style={{ ...styles.container, height: CARD_HEIGHT + 60 }}
-      onPress={() => navigation.navigate("Product")}
+      onPress={() => navigation.navigate("Product", { item })}
     >
       <View style={{ ...styles.imageContainer, height: CARD_HEIGHT }}>
         <Image source={image} resizeMode="cover" style={{ ...styles.image }} />

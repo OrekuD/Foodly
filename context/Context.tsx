@@ -13,7 +13,7 @@ const Context = createContext<AppContext>({
 });
 
 const Provider = ({ children }: ProviderProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const [isTabbarVissible, setIsTabbarVissible] = useState<boolean>(true);
 
   const setUserState = (state: boolean) => {

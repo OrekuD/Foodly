@@ -14,6 +14,7 @@ import {
   Share,
   Logout,
   Doucument,
+  CreditCard,
 } from "../../components/Svgs";
 
 const Profile = ({
@@ -40,7 +41,7 @@ const Profile = ({
       id: "2",
       title: "Payment Methods",
       subtitle: "Add your credit & debit cards",
-      icon: <Ionicons name="ios-search" size={22} color={darkgrey} />,
+      icon: <CreditCard size={22} color={darkgrey} />,
       screen: "PaymentMethods",
     },
     {

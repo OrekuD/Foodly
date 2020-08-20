@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg, { Path } from "react-native-svg";
+import React from "react";
+import Svg, { Path, ClipPath, Defs, G, Rect } from "react-native-svg";
 import { SvgProps } from "../types";
 
 export function HomeIcon({ size, color }: SvgProps) {
@@ -294,6 +294,48 @@ export function Notification({ size, color }: SvgProps) {
         d="M3.157 10.061c0 1.366-1.122 2.472-2.505 2.472h16.696c-1.383 0-2.504-1.106-2.504-2.472v-4.12C14.844 2.757 12.227.175 9 .175c-3.227 0-5.843 2.582-5.843 5.768v4.12zM9 15.826c.86 0 1.655-.626 2.087-1.642H6.913C7.345 15.201 8.14 15.826 9 15.826z"
         fill={color}
       />
+    </Svg>
+  );
+}
+
+export function CreditCard({ size, color }: SvgProps) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24">
+      <Defs>
+        <ClipPath id="prefix__a">
+          <Path
+            data-name="Rectangle 12"
+            transform="translate(312 187.462)"
+            stroke={color}
+            d="M0 0h24v24H0z"
+          />
+        </ClipPath>
+      </Defs>
+      <G data-name="Group 62">
+        <G
+          data-name="Mask Group 14"
+          clipPath="url(#prefix__a)"
+          transform="translate(-312 -187.462)"
+        >
+          <G
+            transform="translate(312 187.462)"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            stroke="#ffffff"
+          >
+            <Rect
+              data-name="Rectangle 41"
+              width={22}
+              height={16}
+              rx={2}
+              transform="translate(1 4)"
+              fill={color}
+            />
+            <Path data-name="Line 4" d="M1 10h22" />
+          </G>
+        </G>
+      </G>
     </Svg>
   );
 }

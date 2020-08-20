@@ -46,25 +46,22 @@ const Home = ({ navigation }: StackScreenProps<HomeStackParamList, "Home">) => {
                 extrapolate: "clamp",
               });
 
-              return <Animated.View style={{ ...styles.dot, opacity }} />;
+              return (
+                <Animated.View key={index} style={{ ...styles.dot, opacity }} />
+              );
             })}
           </View>
         </View>
-
         <View style={{ flexDirection: "row", paddingVertical: 10 }}>
           <View style={{ marginHorizontal: (width * 0.1) / 3 }}>
-            {products
-              .slice(0, Math.floor(products.length / 2))
-              .map((item, index) => (
-                <ProductCard navigation={navigation} key={index} item={item} />
-              ))}
+            {products.slice(0, 4).map((item, index) => (
+              <ProductCard navigation={navigation} key={index} item={item} />
+            ))}
           </View>
           <View style={{ marginRight: (width * 0.1) / 3 }}>
-            {products
-              .slice(Math.floor(products.length / 2), products.length)
-              .map((item, index) => (
-                <ProductCard navigation={navigation} key={index} item={item} />
-              ))}
+            {products.slice(4, 8).map((item, index) => (
+              <ProductCard navigation={navigation} key={index} item={item} />
+            ))}
           </View>
         </View>
         <View style={styles.discountContainer}>

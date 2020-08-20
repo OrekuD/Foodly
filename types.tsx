@@ -77,4 +77,8 @@ export interface Product {
   time: string;
   image: ImageRequireSource;
   aspectRatio?: number;
+  sandwich?: boolean;
+  soup?: boolean;
+  burger?: boolean;
+  fruit?: boolean;
 }
