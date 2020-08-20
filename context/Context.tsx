@@ -31,7 +31,9 @@ const Provider = ({ children }: ProviderProps) => {
     setIsTabbarVissible(state);
   };
 
-  const addUserDetails = (userDetails: User) => {};
+  const addUserDetails = (userDetails: User) => {
+    setUser(userDetails);
+  };
 
   const state: AppContext = {
     isLoggedIn,
