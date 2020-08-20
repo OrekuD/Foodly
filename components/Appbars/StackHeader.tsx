@@ -9,12 +9,19 @@ import { black } from "../../constants/Colors";
 interface StackHeaderProps {
   title: string;
   onPress: () => void;
+  filterHeader?: boolean;
 }
 
-const StackHeader = ({ title, onPress }: StackHeaderProps) => {
+const StackHeader = ({ title, onPress, filterHeader }: StackHeaderProps) => {
   const { top: paddingTop } = useSafeAreaInsets();
   return (
-    <View style={{ ...styles.container, paddingTop }}>
+    <View
+      style={{
+        ...styles.container,
+        paddingTop: filterHeader ? 0 : paddingTop,
+        height: filterHeader ? 80 : 110,
+      }}
+    >
       <BorderlessButton onPress={onPress}>
         <MaterialCommunityIcons name="chevron-left" color={black} size={36} />
       </BorderlessButton>

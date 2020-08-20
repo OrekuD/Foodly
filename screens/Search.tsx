@@ -1,12 +1,20 @@
-import * as React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React from "react";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../types";
+import { Text } from "../components";
+import { white } from "../constants/Colors";
 
 interface SearchProps {}
 
-const Search = (props: SearchProps) => {
+const Search = ({
+  navigation,
+}: StackScreenProps<RootStackParamList, "Main">) => {
   return (
     <View style={styles.container}>
-      <Text>Search</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("SearchFilter")}>
+        <Text>Search</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -14,5 +22,10 @@ const Search = (props: SearchProps) => {
 export default Search;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    backgroundColor: white,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

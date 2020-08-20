@@ -48,7 +48,7 @@ const Form = ({ signup, navigation }: FormProps) => {
         password: "",
       };
   const schema = signup ? SignUpSchema : LogInSchema;
-  const { addUserDetails } = useAppContext();
+  const { addUserDetails, user } = useAppContext();
 
   const {
     handleChange,
@@ -62,8 +62,13 @@ const Form = ({ signup, navigation }: FormProps) => {
     validationSchema: schema,
     onSubmit: (values) => {
       navigation?.navigate("GetStarted");
-      console.log(values);
-      addUserDetails(values);
+      // console.log(values);
+      addUserDetails({
+        email: values.email,
+        password: values.password,
+        fullname: values.fullname,
+        phone: user.phone,
+      });
     },
   });
 

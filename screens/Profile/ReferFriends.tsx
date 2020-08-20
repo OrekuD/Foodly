@@ -28,15 +28,15 @@ const ReferFriends = ({
       const result = await Share.share({
         message: `I think you would love Foodly. Click this link to sign up! \n\n${link}`,
       });
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          console.log("Trying");
-        } else {
-          console.log("Succesfully shared referal link");
-        }
-      } else if (result.action === Share.dismissedAction) {
-        console.log("Dimissed");
-      }
+      // if (result.action === Share.sharedAction) {
+      //   if (result.activityType) {
+      //     console.log("Trying");
+      //   } else {
+      //     console.log("Succesfully shared referal link");
+      //   }
+      // } else if (result.action === Share.dismissedAction) {
+      //   console.log("Dimissed");
+      // }
     } catch (error) {
       Alert.alert("Share", "There was an issue sharing your product");
     }

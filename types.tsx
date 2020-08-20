@@ -9,6 +9,7 @@ export type RootStackParamList = {
   GetStarted: undefined;
   VerifyPhone: undefined;
   Main: undefined;
+  SearchFilter: undefined;
 };
 
 export type BottomTabParamList = {
@@ -89,4 +90,5 @@ export interface User {
   fullname?: string;
   email?: string;
   phone?: string;
+  password?: string;
 }

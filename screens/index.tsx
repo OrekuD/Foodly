@@ -18,3 +18,4 @@ export { default as VerifyPhone } from "./VerifyPhone";
 export { default as Walkthrough } from "./Walkthrough";
 export { default as SignIn } from "./SignIn";
 export { default as SignUp } from "./SignUp";
+export { default as SearchFilter } from "./SearchFilter";

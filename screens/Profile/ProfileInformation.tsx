@@ -40,8 +40,12 @@ const ProfileInformation = ({
     initialValues: user,
     validationSchema: ProfileSchema,
     onSubmit: (values) => {
-      console.log(values);
-      addUserDetails(values);
+      addUserDetails({
+        fullname: values.fullname,
+        email: values.email,
+        phone: values.phone,
+        password: user.password,
+      });
     },
   });
 
@@ -121,9 +125,7 @@ const ProfileInformation = ({
             ) : null}
           </View>
         </View>
-        <View style={styles.buttonContainer}>
-          <Button label="Change settings" onPress={handleSubmit} />
-        </View>
+        <Button label="Change settings" onPress={handleSubmit} />
       </View>
     </View>
   );
@@ -159,9 +161,6 @@ const styles = StyleSheet.create({
     height: "90%",
     fontSize: 18,
     fontFamily: "SFProDisplay-Regular",
-  },
-  buttonContainer: {
-    marginVertical: 25,
   },
   row: {
     flexDirection: "row",

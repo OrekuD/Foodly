@@ -32,6 +32,7 @@ import {
   AddSocialAccount,
   ReferFriends,
   Product,
+  SearchFilter,
 } from "../screens";
 import { useAppContext } from "../context/Context";
 import { Feather } from "@expo/vector-icons";
@@ -189,6 +190,13 @@ const RootNavigation = () => {
         </>
       )}
       <RootStack.Screen name="Main" component={BottomTabNavigation} />
+      <RootStack.Screen
+        name="SearchFilter"
+        component={SearchFilter}
+        options={{
+          ...TransitionPresets.ModalPresentationIOS,
+        }}
+      />
     </RootStack.Navigator>
   );
 };

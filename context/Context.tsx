@@ -19,9 +19,14 @@ const Context = createContext<AppContext>({
 // phone: "+1231231231",
 
 const Provider = ({ children }: ProviderProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const [isTabbarVissible, setIsTabbarVissible] = useState<boolean>(true);
-  const [user, setUser] = useState<User>({});
+  const [user, setUser] = useState<User>({
+    phone: "+1231231231",
+    fullname: "Nelson Benson",
+    email: "nelson@gmail.com",
+    password: "qwertyqw",
+  });
 
   const setUserState = (state: boolean) => {
     setIsLoggedIn(state);
