@@ -2,21 +2,70 @@ import React, { useState } from "react";
 import { View, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import Text from "../Text";
 import { Ionicons } from "@expo/vector-icons";
-import { green, grey, lightgrey } from "../../constants/Colors";
+import { green, grey, lightgrey, red } from "../../constants/Colors";
 import { boolean } from "yup";
 import Button from "../Buttons/Button";
 import SocialButton from "../Buttons/SocialButton";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../types";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { Eye, CloseEye } from "../Svgs";
+import { useAppContext } from "../../context/Context";
 
 interface FormProps {
   signup?: boolean;
   navigation?: StackNavigationProp<RootStackParamList, "SignIn" | "SignUp">;
 }
 
+const LogInSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  password: Yup.string()
+    .min(6, "Password is too short")
+    .max(12, "Password is too long")
+    .required(),
+});
+
+const SignUpSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  fullname: Yup.string().required("Email is required"),
+  password: Yup.string()
+    .min(6, "Password is too short")
+    .max(12, "Password is too long")
+    .required(),
+});
+
 const Form = ({ signup, navigation }: FormProps) => {
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
+  const initialValues = signup
+    ? {
+        email: "",
+        fullname: "",
+        password: "",
+      }
+    : {
+        email: "",
+        password: "",
+      };
+  const schema = signup ? SignUpSchema : LogInSchema;
+  const { addUserDetails } = useAppContext();
+
+  const {
+    handleChange,
+    handleSubmit,
+    values,
+    handleBlur,
+    errors,
+    touched,
+  } = useFormik({
+    initialValues: initialValues,
+    validationSchema: schema,
+    onSubmit: (values) => {
+      navigation?.navigate("GetStarted");
+      console.log(values);
+      addUserDetails(values);
+    },
+  });
 
   return (
     <View style={styles.container}>
@@ -30,8 +79,18 @@ const Form = ({ signup, navigation }: FormProps) => {
             full name
           </Text>
           <View style={styles.textInputContainer}>
-            <TextInput style={styles.textInput} />
-            <Ionicons name="ios-checkmark" color={green} size={28} />
+            <TextInput
+              style={styles.textInput}
+              onChangeText={handleChange("fullname")}
+              onBlur={handleBlur("fullname")}
+            />
+            {touched.fullname ? (
+              errors.fullname ? (
+                <Ionicons name="ios-close" color={red} size={28} />
+              ) : (
+                <Ionicons name="ios-checkmark" color={green} size={28} />
+              )
+            ) : null}
           </View>
         </View>
       )}
@@ -44,8 +103,18 @@ const Form = ({ signup, navigation }: FormProps) => {
           email address
         </Text>
         <View style={styles.textInputContainer}>
-          <TextInput style={styles.textInput} />
-          <Ionicons name="ios-checkmark" color={green} size={28} />
+          <TextInput
+            style={styles.textInput}
+            onChangeText={handleChange("email")}
+            onBlur={handleBlur("email")}
+          />
+          {touched.email ? (
+            errors.email ? (
+              <Ionicons name="ios-close" color={red} size={28} />
+            ) : (
+              <Ionicons name="ios-checkmark" color={green} size={28} />
+            )
+          ) : null}
         </View>
       </View>
       <View style={styles.section}>
@@ -72,8 +141,16 @@ const Form = ({ signup, navigation }: FormProps) => {
           <TextInput
             secureTextEntry={!passwordVisible}
             style={styles.textInput}
+            onChangeText={handleChange("password")}
+            onBlur={handleBlur("password")}
           />
-          <Ionicons name="ios-checkmark" color={green} size={28} />
+          {touched.password ? (
+            errors.password ? (
+              <Ionicons name="ios-close" color={red} size={28} />
+            ) : (
+              <Ionicons name="ios-checkmark" color={green} size={28} />
+            )
+          ) : null}
         </View>
       </View>
       {!signup && (
@@ -87,10 +164,7 @@ const Form = ({ signup, navigation }: FormProps) => {
         </TouchableOpacity>
       )}
       <View style={styles.buttonContainer}>
-        <Button
-          label={signup ? "sign up" : "sign in"}
-          onPress={() => navigation?.navigate("GetStarted")}
-        />
+        <Button label={signup ? "sign up" : "sign in"} onPress={handleSubmit} />
       </View>
       {signup ? (
         <Text

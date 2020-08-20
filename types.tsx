@@ -53,6 +53,8 @@ export interface AppContext {
   isTabbarVissible: boolean;
   setTabbarState: (state: boolean) => void;
   setUserState: (state: boolean) => void;
+  user: User;
+  addUserDetails: (userDetails: User) => void;
 }
 
 export interface AccountSetting {
@@ -81,4 +83,10 @@ export interface Product {
   soup?: boolean;
   burger?: boolean;
   fruit?: boolean;
+}
+
+export interface User {
+  fullname?: string;
+  email?: string;
+  phone?: string;
 }

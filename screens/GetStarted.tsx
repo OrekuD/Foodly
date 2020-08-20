@@ -39,7 +39,7 @@ const GetStarted = ({
           phone number
         </Text>
         <View style={styles.phoneInput}>
-          <PhoneInput ref={phoneInputRef} initialCountry="gh" />
+          {/* <PhoneInput ref={phoneInputRef} initialCountry="gh" /> */}
         </View>
         <Button
           label="sign up"

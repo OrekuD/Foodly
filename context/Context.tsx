@@ -1,5 +1,5 @@
 import React, { ReactNode, createContext, useState, useContext } from "react";
-import { AppContext } from "../types";
+import { AppContext, User } from "../types";
 
 interface ProviderProps {
   children: ReactNode;
@@ -10,11 +10,18 @@ const Context = createContext<AppContext>({
   isTabbarVissible: true,
   setUserState: () => {},
   setTabbarState: () => {},
+  user: {},
+  addUserDetails: () => {},
 });
 
+// fullname: "Nelson Benson",
+// email: "nelson@gmail.com",
+// phone: "+1231231231",
+
 const Provider = ({ children }: ProviderProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isTabbarVissible, setIsTabbarVissible] = useState<boolean>(true);
+  const [user, setUser] = useState<User>({});
 
   const setUserState = (state: boolean) => {
     setIsLoggedIn(state);
@@ -24,11 +31,15 @@ const Provider = ({ children }: ProviderProps) => {
     setIsTabbarVissible(state);
   };
 
+  const addUserDetails = (userDetails: User) => {};
+
   const state: AppContext = {
     isLoggedIn,
     isTabbarVissible,
     setUserState,
     setTabbarState,
+    user,
+    addUserDetails,
   };
   return <Context.Provider value={state}>{children}</Context.Provider>;
 };
