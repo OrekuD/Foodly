@@ -4,6 +4,7 @@ export {
   NotificationSettingsCard,
   ProductCard,
   HomeCard,
+  OrdersCard,
 } from "./Cards";
 export { StackHeader, MainHeader } from "./Appbars";
 export { default as Form } from "./Form/Form";
