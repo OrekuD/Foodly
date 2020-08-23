@@ -27,28 +27,26 @@ const Orders = (props: OrdersProps) => {
             <Text variant="headerText">Your orders</Text>
           </View>
           <View style={styles.content}>
-            {upcomingOrders.length > 0 && (
-              <View style={styles.row}>
+            <View style={styles.row}>
+              <Text
+                variant="headerText"
+                color="darkgrey"
+                style={{ textTransform: "uppercase" }}
+              >
+                upcoming orders
+              </Text>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                onPress={() => setUpcomingOrders([])}
+              >
                 <Text
-                  variant="headerText"
-                  color="darkgrey"
-                  style={{ textTransform: "uppercase" }}
+                  variant="caption"
+                  style={{ textTransform: "uppercase", letterSpacing: 1 }}
                 >
-                  upcoming orders
+                  Clear all
                 </Text>
-                <TouchableOpacity
-                  activeOpacity={0.6}
-                  onPress={() => setUpcomingOrders([])}
-                >
-                  <Text
-                    variant="caption"
-                    style={{ textTransform: "uppercase", letterSpacing: 1 }}
-                  >
-                    Clear all
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            )}
+              </TouchableOpacity>
+            </View>
             <ScrollView>
               {upcomingOrders.map((order, index) => (
                 <OrdersCard key={index} order={order} />

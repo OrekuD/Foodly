@@ -8,9 +8,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/burger-1.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.2,
     burger: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -19,9 +22,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/soup-1.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.2,
     soup: true,
+    ratings: {
+      average: 4.3,
+      total: 200,
+    },
   },
   {
     id: String(Math.random()),
@@ -30,9 +36,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/burger-2.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.8,
     burger: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -41,9 +50,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/fruit-1.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     fruit: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -52,9 +64,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/sandwich-1.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     sandwich: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -63,9 +78,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/fruit-2.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     fruit: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -74,9 +92,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/soup-2.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     soup: true,
+    ratings: {
+      average: 4.3,
+      total: 200,
+    },
   },
   {
     id: String(Math.random()),
@@ -85,9 +106,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/sandwich-2.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     sandwich: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -96,9 +120,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/burger-3.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.4,
     burger: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -107,9 +134,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/soup-3.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.2,
     soup: true,
+    ratings: {
+      average: 4.3,
+      total: 200,
+    },
   },
 
   {
@@ -119,9 +149,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/sandwich-3.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     sandwich: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -130,9 +163,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/burger-4.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.4,
     burger: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -141,9 +177,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/fruit-3.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.8,
     fruit: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -152,9 +191,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/fruit-4.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     fruit: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -163,9 +205,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/sandwich-4.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     sandwich: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -174,9 +219,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/soup-4.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.2,
     soup: true,
+    ratings: {
+      average: 4.3,
+      total: 200,
+    },
   },
   {
     id: String(Math.random()),
@@ -185,9 +233,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/burger-5.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.4,
     burger: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -196,9 +247,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/soup-5.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.2,
     soup: true,
+    ratings: {
+      average: 4.3,
+      total: 200,
+    },
   },
   {
     id: String(Math.random()),
@@ -207,9 +261,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/fruit-5.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.8,
     fruit: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -218,9 +275,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/sandwich-5.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     sandwich: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -229,9 +289,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/fruit-6.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.6,
     fruit: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
   {
     id: String(Math.random()),
@@ -240,9 +303,12 @@ export const products: Product[] = [
     price: 0,
     image: require("../assets/images/products/fruit-7.jpg"),
     time: "25min",
-    rating: 4.5,
     aspectRatio: 1.2,
     fruit: true,
+    ratings: {
+      average: 4.5,
+      total: 100,
+    },
   },
 ];
 
@@ -254,7 +320,6 @@ export const featuredProducts: Product[] = [
     price: 0,
     image: require("../assets/images/products/1.jpg"),
     time: "25min",
-    rating: 4.5,
   },
   {
     id: String(Math.random()),
@@ -263,7 +328,6 @@ export const featuredProducts: Product[] = [
     price: 0,
     image: require("../assets/images/products/2.jpg"),
     time: "25min",
-    rating: 4.5,
   },
   {
     id: String(Math.random()),
@@ -272,7 +336,6 @@ export const featuredProducts: Product[] = [
     price: 0,
     image: require("../assets/images/products/3.jpg"),
     time: "25min",
-    rating: 4.5,
   },
   {
     id: String(Math.random()),
@@ -281,7 +344,6 @@ export const featuredProducts: Product[] = [
     price: 0,
     image: require("../assets/images/products/4.jpg"),
     time: "25min",
-    rating: 4.5,
   },
   {
     id: String(Math.random()),
@@ -290,6 +352,5 @@ export const featuredProducts: Product[] = [
     price: 0,
     image: require("../assets/images/products/5.jpg"),
     time: "25min",
-    rating: 4.5,
   },
 ];

@@ -21,7 +21,7 @@ export type BottomTabParamList = {
 
 export type HomeStackParamList = {
   Home: undefined;
-  Product: undefined;
+  Product: { item: Product };
 };
 
 export type OrdersStackParamList = {
@@ -74,7 +74,6 @@ export interface SvgProps {
 export interface Product {
   id: string;
   name: string;
-  rating: number;
   price: number;
   tags: string[];
   time: string;
@@ -84,6 +83,10 @@ export interface Product {
   soup?: boolean;
   burger?: boolean;
   fruit?: boolean;
+  ratings?: {
+    average: number;
+    total: number;
+  };
 }
 
 export interface User {

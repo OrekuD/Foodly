@@ -24,7 +24,7 @@ const ratios = [1.2, 1.4, 1.6, 1.8, 2];
 const CARD_WIDTH = width * 0.45;
 
 const HomeCard = ({ item, navigation }: ProductCardProps) => {
-  const { name, price, image, rating, tags, time, aspectRatio } = item;
+  const { name, price, image, ratings, tags, time, aspectRatio } = item;
 
   const CARD_HEIGHT = CARD_WIDTH * aspectRatio;
 
@@ -52,7 +52,7 @@ const HomeCard = ({ item, navigation }: ProductCardProps) => {
             </View>
             <View style={styles.rating}>
               <Text variant="title1" color="white">
-                {rating}
+                {ratings?.average}
               </Text>
             </View>
           </View>

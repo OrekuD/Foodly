@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   subhead: {
     fontSize: 20,
-    fontFamily: "SFProDisplay-Regular",
+    fontFamily: "SFProDisplay-Medium",
   },
   caption: {
     fontSize: 16,
