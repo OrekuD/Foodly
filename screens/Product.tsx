@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { View, StyleSheet, ScrollView, Image } from "react-native";
+import { View, StyleSheet, ScrollView, Image, Animated } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
-import { HomeStackParamList, RootStackParamList } from "../types";
+import { RootStackParamList } from "../types";
 import { useAppContext } from "../context/Context";
 import { white, grey, green } from "../constants/Colors";
-import { width } from "../constants/Layout";
+import { width, height } from "../constants/Layout";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   MaterialCommunityIcons,
@@ -36,11 +36,37 @@ const Product = ({
     soup,
   } = item;
   const { top } = useSafeAreaInsets();
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const scale = scrollY.interpolate({
+    inputRange: [0, 300],
+    outputRange: [1, 1.2],
+    extrapolate: "clamp",
+  });
+
+  const translateY = scrollY.interpolate({
+    inputRange: [0, 300],
+    outputRange: [0, 100],
+    extrapolate: "clamp",
+  });
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <Animated.ScrollView
+      contentContainerStyle={styles.container}
+      onScroll={Animated.event(
+        [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+        { useNativeDriver: false }
+      )}
+    >
       <View style={styles.imageContainer}>
-        <Image source={image} resizeMode="cover" style={styles.image} />
+        <Animated.Image
+          source={image}
+          resizeMode="cover"
+          style={{
+            ...styles.image,
+            transform: [{ scale }, { translateY }],
+            // borderRadius,
+          }}
+        />
         <View style={{ ...styles.header, top: top + 10 }}>
           <BorderlessButton onPress={navigation.goBack}>
             <MaterialCommunityIcons
@@ -174,7 +200,7 @@ const Product = ({
             ))}
         </View>
       </View>
-    </ScrollView>
+    </Animated.ScrollView>
   );
 };
 
@@ -192,6 +218,7 @@ const styles = StyleSheet.create({
     width: width,
     height: 300,
     position: "relative",
+    overflow: "hidden",
   },
   image: {
     width: "100%",
