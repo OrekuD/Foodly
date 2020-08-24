@@ -7,7 +7,7 @@ import { RootStackParamList, SearchFilter } from "../types";
 import { RectButton, ScrollView } from "react-native-gesture-handler";
 import { useAppContext } from "../context/Context";
 
-const filters = ["all", "burgers", "chinese", "fruits", "soups"];
+const filters = ["all", "burgers", "chinese", "fruits", "soups", "sandwich"];
 const diets = ["any", "vegetarian", "vegan", "gluten-free"];
 const priceRanges = [
   "0 - 20",

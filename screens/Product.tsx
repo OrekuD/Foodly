@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { View, StyleSheet, ScrollView, Image } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 import { HomeStackParamList, RootStackParamList } from "../types";
@@ -13,7 +13,7 @@ import {
 } from "@expo/vector-icons";
 import { Share, Dollar, Timer } from "../components/Svgs";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
-import { Text, FeaturedItemsCard } from "../components";
+import { Text, FeaturedItemsCard, ProductCard } from "../components";
 import { products } from "../data/products";
 
 const Product = ({
@@ -22,14 +22,20 @@ const Product = ({
 }: StackScreenProps<RootStackParamList, "Product">) => {
   const { setTabbarState } = useAppContext();
   const { item } = route.params;
-  const { id, name, price, tags, time, image, ratings } = item;
+  const {
+    id,
+    name,
+    price,
+    tags,
+    time,
+    image,
+    ratings,
+    burger,
+    fruit,
+    sandwich,
+    soup,
+  } = item;
   const { top } = useSafeAreaInsets();
-
-  // useEffect(() => {
-  //   setTabbarState(false);
-
-  //   return () => setTabbarState(true);
-  // }, []);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -125,12 +131,8 @@ const Product = ({
             </View>
             <RectButton style={styles.button}>
               <View style={styles.button}>
-                <Text
-                  variant="subhead"
-                  color="green"
-                  style={{ textTransform: "uppercase" }}
-                >
-                  Take away
+                <Text variant="subhead" color="green">
+                  TAKE AWAY
                 </Text>
               </View>
             </RectButton>
@@ -156,6 +158,21 @@ const Product = ({
             ))}
           </ScrollView>
         </View>
+        <Text variant="title2" style={{ margin: 20, marginTop: 0 }}>
+          Similar Items
+        </Text>
+        <View style={styles.items}>
+          {products
+            .filter((product) => product.name === name)
+            .map((item, index) => (
+              <ProductCard
+                key={index}
+                navigation={navigation}
+                fixedHeight
+                item={item}
+              />
+            ))}
+        </View>
       </View>
     </ScrollView>
   );
@@ -165,7 +182,6 @@ export default Product;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: white,
   },
   content: {
@@ -227,5 +243,11 @@ const styles = StyleSheet.create({
   },
   featuredItems: {
     marginVertical: 15,
+  },
+  items: {
+    width: "100%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
   },
 });

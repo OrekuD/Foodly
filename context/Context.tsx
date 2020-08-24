@@ -1,5 +1,6 @@
 import React, { ReactNode, createContext, useState, useContext } from "react";
-import { AppContext, User, SearchFilter } from "../types";
+import { AppContext, User, SearchFilter, Product, ACTIONS } from "../types";
+import { products } from "../data/products";
 
 interface ProviderProps {
   children: ReactNode;
@@ -12,6 +13,7 @@ const Context = createContext<AppContext>({
   setTabbarState: () => {},
   user: {},
   addUserDetails: () => {},
+  cart: [],
 });
 
 // fullname: "Nelson Benson",
@@ -21,6 +23,25 @@ const Context = createContext<AppContext>({
 const Provider = ({ children }: ProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const [isTabbarVissible, setIsTabbarVissible] = useState<boolean>(true);
+  const [cart, setCart] = useState<Product[]>([]);
+
+  const manageCart = (action: ACTIONS, product?: Product) => {
+    switch (action) {
+      case "ADD_TO_CART":
+        if (isProductInCart(product!)) {
+          return;
+        }
+        product!.count = 1;
+        setCart([...cart, product!]);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  const isProductInCart = (item: Product) =>
+    products.find((product) => product.id === item.id);
 
   const [user, setUser] = useState<User>({
     phone: "+1231231231",
@@ -48,6 +69,9 @@ const Provider = ({ children }: ProviderProps) => {
     setTabbarState,
     user,
     addUserDetails,
+    isProductInCart,
+    manageCart,
+    cart,
   };
   return <Context.Provider value={state}>{children}</Context.Provider>;
 };

@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { View, StyleSheet, Image, ScrollView } from "react-native";
+import React from "react";
+import { View, StyleSheet, Image } from "react-native";
 import { Product } from "../../types";
 import { width } from "../../constants/Layout";
 import Text from "../Text";
-import { green, white, grey } from "../../constants/Colors";
-import { Dollar, FastClock } from "../Svgs";
+import { grey } from "../../constants/Colors";
 
 interface OrdersCardProps {
   order: Product;
@@ -22,7 +21,12 @@ const OrdersCard = ({ order, pastOrders }: OrdersCardProps) => {
         <Image source={image} style={styles.image} resizeMode="cover" />
       </View>
       <View style={styles.content}>
-        <Text variant="body">{name}</Text>
+        <View>
+          <Text variant="headerText">{name}</Text>
+          <Text variant="body" numberOfLines={3} color="darkgrey">
+            Pariatur cillum excepteur veniam commodo laboris eiusmod dolor.
+          </Text>
+        </View>
         <View style={styles.row}>
           <Text variant="body" color="darkgrey">
             {tags[0]}

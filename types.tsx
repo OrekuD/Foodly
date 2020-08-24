@@ -49,6 +49,13 @@ export interface WalkthroughSlideProps {
   image: ImageRequireSource;
 }
 
+export type ACTIONS =
+  | "ADD_TO_CART"
+  | "REMOVE_FROM_CART"
+  | "INCREASE_COUNT"
+  | "DECREASE_COUNT"
+  | "EMPTY_CART";
+
 export interface AppContext {
   isLoggedIn: boolean;
   isTabbarVissible: boolean;
@@ -56,6 +63,9 @@ export interface AppContext {
   setUserState: (state: boolean) => void;
   user: User;
   addUserDetails: (userDetails: User) => void;
+  cart: Product[];
+  isProductInCart: (product: Product) => Product | undefined;
+  manageCart: (action: ACTIONS, product?: Product) => void;
 }
 
 export interface SearchFilter {
@@ -95,6 +105,7 @@ export interface Product {
     average: number;
     total: number;
   };
+  count?: number;
 }
 
 export interface User {

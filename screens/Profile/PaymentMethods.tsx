@@ -28,8 +28,8 @@ const PaymentMethods = ({
           resizeMode="contain"
           style={styles.image}
         />
-        <Text variant="title2" style={{ textAlign: "center" }}>
-          Don't have any card :)
+        <Text variant="title2" style={{ textAlign: "center", width: "95%" }}>
+          You don't have any cards set :(
         </Text>
         <Text
           variant="body"

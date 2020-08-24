@@ -23,9 +23,9 @@ const Orders = (props: OrdersProps) => {
       <View style={{ height, backgroundColor: white }} />
       <ScrollView style={{ backgroundColor: white }}>
         <View>
-          <View style={styles.header}>
-            <Text variant="headerText">Your orders</Text>
-          </View>
+          <Text variant="headline" style={{ margin: 20, marginBottom: 0 }}>
+            Orders
+          </Text>
           <View style={styles.content}>
             <View style={styles.row}>
               <Text
@@ -33,7 +33,7 @@ const Orders = (props: OrdersProps) => {
                 color="darkgrey"
                 style={{ textTransform: "uppercase" }}
               >
-                upcoming orders
+                UPCOMING ORDERS
               </Text>
               <TouchableOpacity
                 activeOpacity={0.6}
@@ -43,7 +43,7 @@ const Orders = (props: OrdersProps) => {
                   variant="caption"
                   style={{ textTransform: "uppercase", letterSpacing: 1 }}
                 >
-                  Clear all
+                  CLEAR ALL
                 </Text>
               </TouchableOpacity>
             </View>
