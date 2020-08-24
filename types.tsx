@@ -9,7 +9,7 @@ export type RootStackParamList = {
   GetStarted: undefined;
   VerifyPhone: undefined;
   Main: undefined;
-  SearchFilter: undefined;
+  SearchFilters: undefined;
   Product: { item: Product };
 };
 
@@ -56,8 +56,6 @@ export interface AppContext {
   setUserState: (state: boolean) => void;
   user: User;
   addUserDetails: (userDetails: User) => void;
-  searchFilter: SearchFilter;
-  modifySearchFilter: (filter: SearchFilter) => void;
 }
 
 export interface SearchFilter {
@@ -73,7 +71,7 @@ export interface AccountSetting {
   title: string;
   subtitle: string;
   icon: React.ReactNode;
-  screen: keyof ProfileStackParamList;
+  screen?: keyof ProfileStackParamList;
 }
 
 export interface SvgProps {

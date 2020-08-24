@@ -8,12 +8,12 @@ import { RootStackParamList } from "../../types";
 import { Facebook, Google } from "../Svgs";
 
 interface SocialButtonProps {
-  onPress: () => void;
+  onPress?: () => void;
   variant: "facebook" | "google";
   navigation?: StackNavigationProp<RootStackParamList, "SignIn" | "SignUp">;
 }
 
-const SocialButton = ({ onPress, variant, navigation }: SocialButtonProps) => {
+const SocialButton = ({ variant, navigation }: SocialButtonProps) => {
   return (
     <RectButton
       onPress={() => navigation?.navigate("GetStarted")}

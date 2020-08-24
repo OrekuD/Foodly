@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { Product, HomeStackParamList } from "../../types";
+import { Product, HomeStackParamList, RootStackParamList } from "../../types";
 import { width } from "../../constants/Layout";
 import Text from "../Text";
 import { grey } from "../../constants/Colors";
@@ -9,7 +9,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 interface FeaturedItemsCardProps {
   product: Product;
   first: boolean;
-  navigation: StackNavigationProp<HomeStackParamList, "Product">;
+  navigation: StackNavigationProp<RootStackParamList, "Product">;
 }
 
 const CARD_WIDTH = width * 0.35;

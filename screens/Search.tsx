@@ -13,16 +13,16 @@ import { white, darkgrey, palewhite } from "../constants/Colors";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { products } from "../data/products";
 import { Ionicons } from "@expo/vector-icons";
+import { useAppContext } from "../context/Context";
 
 const Search = ({
   navigation,
 }: StackScreenProps<RootStackParamList, "Main">) => {
-  const { top: height } = useSafeAreaInsets();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Product[]>(
     products.slice(0, 10)
   );
-  // products.slice(0, 10)
+  const { top: height } = useSafeAreaInsets();
 
   useEffect(() => {
     searchProducts();
@@ -48,7 +48,7 @@ const Search = ({
           <Text variant="headline">Search</Text>
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("SearchFilter")}
+            onPress={() => navigation.navigate("SearchFilters")}
           >
             <Text variant="body">Filters</Text>
           </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React, { ReactNode, createContext, useState, useContext } from "react";
-import { AppContext, User, SearchFilters } from "../types";
+import { AppContext, User, SearchFilter } from "../types";
 
 interface ProviderProps {
   children: ReactNode;
@@ -12,9 +12,6 @@ const Context = createContext<AppContext>({
   setTabbarState: () => {},
   user: {},
   addUserDetails: () => {},
-  searchFilters: {
-    all: true,
-  },
 });
 
 // fullname: "Nelson Benson",
@@ -24,9 +21,7 @@ const Context = createContext<AppContext>({
 const Provider = ({ children }: ProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
   const [isTabbarVissible, setIsTabbarVissible] = useState<boolean>(true);
-  const [searchFilters, setSearchFilters] = useState<SearchFilters>({
-    all: true,
-  });
+
   const [user, setUser] = useState<User>({
     phone: "+1231231231",
     fullname: "Nelson Benson",

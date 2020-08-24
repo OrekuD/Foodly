@@ -174,6 +174,7 @@ const Profile = ({
               key={index}
               item={item}
               last={index === notificationSettings.length - 1}
+              navigation={navigation}
             />
           ))}
         </View>

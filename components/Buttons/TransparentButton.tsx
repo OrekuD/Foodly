@@ -11,7 +11,7 @@ import { green, white, black, grey } from "../../constants/Colors";
 
 interface TransparentButtonProps {
   label: string;
-  onPress: () => void;
+  onPress?: () => void;
   icon?: ReactNode;
 }
 

@@ -6,7 +6,7 @@ import { RectButton } from "react-native-gesture-handler";
 
 interface ButtonProps {
   label: string;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 const Button = ({ label, onPress }: ButtonProps) => {
