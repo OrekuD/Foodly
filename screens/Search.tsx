@@ -42,7 +42,7 @@ const Search = ({
       <View style={{ height, backgroundColor: white }} />
       <ScrollView
         style={{ backgroundColor: white }}
-        contentContainerStyle={{ paddingTop: 20, flex: 1 }}
+        contentContainerStyle={{ paddingTop: 20 }}
       >
         <View style={styles.row}>
           <Text variant="headline">Search</Text>
@@ -78,8 +78,8 @@ const Search = ({
             : "Top Restaurants"}
         </Text>
         {searchResults.length > 0 ? (
-          <ScrollView
-            contentContainerStyle={{
+          <View
+            style={{
               flexDirection: "row",
               flexWrap: "wrap",
               justifyContent: "space-evenly",
@@ -93,7 +93,7 @@ const Search = ({
                 fixedHeight
               />
             ))}
-          </ScrollView>
+          </View>
         ) : (
           <View
             style={{ flex: 1, alignItems: "center", justifyContent: "center" }}

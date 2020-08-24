@@ -112,74 +112,77 @@ const Profile = ({
   ];
 
   return (
-    <ScrollView>
-      <View style={{ ...styles.container, paddingTop }}>
-        <Text variant="headline" style={{ margin: 20, marginBottom: 10 }}>
-          Account Settings
-        </Text>
-        <Text
-          variant="body"
-          color="grey"
-          style={{ marginLeft: 20, marginRight: 20 }}
-        >
-          Update your settings like notifications, payment, edit profile, etc
-        </Text>
-        <View style={styles.accountSettings}>
-          {accountSettings.map((item, index) => (
-            <SettingsCard
-              key={index}
-              item={item}
-              navigation={navigation}
-              last={index === accountSettings.length - 1}
-            />
-          ))}
-        </View>
-        <View style={styles.subSection}>
+    <>
+      <View style={{ height: paddingTop, backgroundColor: white }} />
+      <ScrollView>
+        <View style={styles.container}>
+          <Text variant="headline" style={{ margin: 20, marginBottom: 10 }}>
+            Account Settings
+          </Text>
           <Text
             variant="body"
-            style={{
-              textTransform: "uppercase",
-              letterSpacing: 1,
-              margin: 20,
-              marginTop: 10,
-            }}
-            color="darkgrey"
+            color="grey"
+            style={{ marginLeft: 20, marginRight: 20 }}
           >
-            Notifications
+            Update your settings like notifications, payment, edit profile, etc
           </Text>
-          {notificationSettings.map((item, index) => (
-            <NotificationSettingsCard
-              key={index}
-              item={item}
-              last={index === notificationSettings.length - 1}
-            />
-          ))}
+          <View style={styles.accountSettings}>
+            {accountSettings.map((item, index) => (
+              <SettingsCard
+                key={index}
+                item={item}
+                navigation={navigation}
+                last={index === accountSettings.length - 1}
+              />
+            ))}
+          </View>
+          <View style={styles.subSection}>
+            <Text
+              variant="body"
+              style={{
+                textTransform: "uppercase",
+                letterSpacing: 1,
+                margin: 20,
+                marginTop: 10,
+              }}
+              color="darkgrey"
+            >
+              Notifications
+            </Text>
+            {notificationSettings.map((item, index) => (
+              <NotificationSettingsCard
+                key={index}
+                item={item}
+                last={index === notificationSettings.length - 1}
+              />
+            ))}
+          </View>
+          <View style={styles.subSection}>
+            <Text
+              variant="body"
+              style={{
+                textTransform: "uppercase",
+                letterSpacing: 1,
+                margin: 20,
+                marginTop: 10,
+              }}
+              color="darkgrey"
+            >
+              More
+            </Text>
+            {moreSettings.map((item, index) => (
+              <SettingsCard
+                more
+                key={index}
+                item={item}
+                last={index === notificationSettings.length - 1}
+                navigation={navigation}
+              />
+            ))}
+          </View>
         </View>
-        <View style={styles.subSection}>
-          <Text
-            variant="body"
-            style={{
-              textTransform: "uppercase",
-              letterSpacing: 1,
-              margin: 20,
-              marginTop: 10,
-            }}
-            color="darkgrey"
-          >
-            More
-          </Text>
-          {moreSettings.map((item, index) => (
-            <SettingsCard
-              more
-              key={index}
-              item={item}
-              last={index === notificationSettings.length - 1}
-              navigation={navigation}
-            />
-          ))}
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 };
 
