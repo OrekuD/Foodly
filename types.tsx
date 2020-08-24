@@ -10,6 +10,7 @@ export type RootStackParamList = {
   VerifyPhone: undefined;
   Main: undefined;
   SearchFilter: undefined;
+  Product: { item: Product };
 };
 
 export type BottomTabParamList = {
@@ -21,7 +22,6 @@ export type BottomTabParamList = {
 
 export type HomeStackParamList = {
   Home: undefined;
-  Product: { item: Product };
 };
 
 export type OrdersStackParamList = {

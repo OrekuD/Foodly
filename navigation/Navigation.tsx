@@ -55,7 +55,6 @@ const HomeNavigation = () => {
       }}
     >
       <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Product" component={Product} />
     </HomeStack.Navigator>
   );
 };
@@ -197,6 +196,7 @@ const RootNavigation = () => {
           ...TransitionPresets.ModalPresentationIOS,
         }}
       />
+      <RootStack.Screen name="Product" component={Product} />
     </RootStack.Navigator>
   );
 };

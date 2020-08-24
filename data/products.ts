@@ -17,7 +17,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "The Halal Guys",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/soup-1.jpg"),
@@ -31,7 +31,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Popeyes 1426",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/burger-2.jpg"),
@@ -45,7 +45,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Mixt - Yerba Buena",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/fruit-1.jpg"),
@@ -59,7 +59,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Split Bread",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/sandwich-1.jpg"),
@@ -87,7 +87,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Mixt - Yerba Buena",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/soup-2.jpg"),
@@ -115,7 +115,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Split Bread",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/burger-3.jpg"),
@@ -129,7 +129,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Mixt - Yerba Buena",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/soup-3.jpg"),
@@ -158,7 +158,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Split Bread",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/burger-4.jpg"),
@@ -172,7 +172,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Mixt - Yerba Buena",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/fruit-3.jpg"),
@@ -200,7 +200,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Split Bread",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/sandwich-4.jpg"),
@@ -228,7 +228,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Mixt - Yerba Buena",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/burger-5.jpg"),
@@ -242,7 +242,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "The Halal Guys",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/soup-5.jpg"),
@@ -270,7 +270,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Mixt - Yerba Buena",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/sandwich-5.jpg"),
@@ -284,7 +284,7 @@ export const products: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "Split Bread",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/fruit-6.jpg"),
@@ -331,7 +331,7 @@ export const featuredProducts: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "The Halal Guys",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/3.jpg"),
@@ -339,7 +339,7 @@ export const featuredProducts: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "The Popeyes",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/4.jpg"),
@@ -347,7 +347,7 @@ export const featuredProducts: Product[] = [
   },
   {
     id: String(Math.random()),
-    name: "McDonald's",
+    name: "The Halal Guys",
     tags: ["Chinese", "American"],
     price: 0,
     image: require("../assets/images/products/5.jpg"),

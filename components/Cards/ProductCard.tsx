@@ -6,7 +6,12 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import { Product, BottomTabParamList, HomeStackParamList } from "../../types";
+import {
+  Product,
+  BottomTabParamList,
+  HomeStackParamList,
+  RootStackParamList,
+} from "../../types";
 import { width } from "../../constants/Layout";
 import Text from "../Text";
 import { green, white, grey } from "../../constants/Colors";
@@ -16,17 +21,18 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 interface ProductCardProps {
   item: Product;
-  navigation: StackNavigationProp<HomeStackParamList, "Home">;
+  navigation: StackNavigationProp<RootStackParamList, "Main" | "Product">;
+  fixedHeight?: boolean;
 }
 
 const ratios = [1.2, 1.4, 1.6, 1.8, 2];
 
 const CARD_WIDTH = width * 0.45;
 
-const HomeCard = ({ item, navigation }: ProductCardProps) => {
+const HomeCard = ({ item, navigation, fixedHeight }: ProductCardProps) => {
   const { name, price, image, ratings, tags, time, aspectRatio } = item;
 
-  const CARD_HEIGHT = CARD_WIDTH * aspectRatio;
+  const CARD_HEIGHT = fixedHeight ? CARD_WIDTH + 120 : CARD_WIDTH * aspectRatio;
 
   return (
     <TouchableOpacity

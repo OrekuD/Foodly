@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { View, StyleSheet, ScrollView, Animated, Image } from "react-native";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import { BottomTabParamList, HomeStackParamList } from "../types";
+import {
+  BottomTabParamList,
+  HomeStackParamList,
+  RootStackParamList,
+} from "../types";
 import { white } from "../constants/Colors";
 import { MainHeader, ProductCard, HomeCard } from "../components";
 import { products, featuredProducts } from "../data/products";
@@ -9,7 +13,7 @@ import { width } from "../constants/Layout";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
 
-const Home = ({ navigation }: StackScreenProps<HomeStackParamList, "Home">) => {
+const Home = ({ navigation }: StackScreenProps<RootStackParamList, "Main">) => {
   const { top: height } = useSafeAreaInsets();
   const scrollX = useRef(new Animated.Value(0)).current;
   return (

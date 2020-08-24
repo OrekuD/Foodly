@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { View, StyleSheet, ScrollView, Image } from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
-import { HomeStackParamList } from "../types";
+import { HomeStackParamList, RootStackParamList } from "../types";
 import { useAppContext } from "../context/Context";
 import { white, grey, green } from "../constants/Colors";
 import { width } from "../constants/Layout";
@@ -13,22 +13,23 @@ import {
 } from "@expo/vector-icons";
 import { Share, Dollar, Timer } from "../components/Svgs";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
-import { Text } from "../components";
+import { Text, FeaturedItemsCard } from "../components";
+import { products } from "../data/products";
 
 const Product = ({
   navigation,
   route,
-}: StackScreenProps<HomeStackParamList, "Product">) => {
+}: StackScreenProps<RootStackParamList, "Product">) => {
   const { setTabbarState } = useAppContext();
   const { item } = route.params;
   const { id, name, price, tags, time, image, ratings } = item;
   const { top } = useSafeAreaInsets();
 
-  useEffect(() => {
-    setTabbarState(false);
+  // useEffect(() => {
+  //   setTabbarState(false);
 
-    return () => setTabbarState(true);
-  }, []);
+  //   return () => setTabbarState(true);
+  // }, []);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -58,76 +59,102 @@ const Product = ({
         </View>
       </View>
       <View style={styles.content}>
-        <Text variant="title2">{name}</Text>
-        <View style={styles.row}>
-          {tags.map((tag, index) => {
-            return (
-              <View
-                key={index}
-                style={{ flexDirection: "row", alignItems: "center" }}
-              >
-                <Text
-                  variant="body"
-                  color="darkgrey"
-                  style={{ marginVertical: 5 }}
-                  numberOfLines={1}
-                >
-                  {tag}
-                </Text>
-                {index !== tags.length - 1 && <View style={styles.dot} />}
-              </View>
-            );
-          })}
-        </View>
-        <View style={styles.row}>
-          <Text variant="caption" style={{ marginRight: 10 }}>
-            {ratings?.average}
-          </Text>
-          <FontAwesome name="star" color={green} size={16} />
-          <Text variant="caption" style={{ marginLeft: 10 }}>
-            {ratings?.total}+ Ratings
-          </Text>
-        </View>
         <View
           style={{
-            ...styles.row,
-            justifyContent: "space-between",
-            marginVertical: 10,
+            paddingHorizontal: 20,
           }}
         >
-          <View style={styles.section}>
-            <View style={{ marginRight: 5, marginTop: 5 }}>
-              <Dollar size={16} color={green} />
-            </View>
-            <View style={styles.col}>
-              <Text variant="body">Free</Text>
-              <Text variant="caption" color="darkgrey">
-                Delivery
-              </Text>
-            </View>
+          <Text variant="title2">{name}</Text>
+          <View style={styles.row}>
+            {tags.map((tag, index) => {
+              return (
+                <View
+                  key={index}
+                  style={{ flexDirection: "row", alignItems: "center" }}
+                >
+                  <Text
+                    variant="body"
+                    color="darkgrey"
+                    style={{ marginVertical: 5 }}
+                    numberOfLines={1}
+                  >
+                    {tag}
+                  </Text>
+                  {index !== tags.length - 1 && <View style={styles.dot} />}
+                </View>
+              );
+            })}
           </View>
-          <View style={styles.section}>
-            <View style={{ margin: 5 }}>
-              <Timer size={16} color={green} />
-            </View>
-            <View style={styles.col}>
-              <Text variant="body">{time.slice(0, 2)}</Text>
-              <Text variant="caption" color="darkgrey">
-                Minutes
-              </Text>
-            </View>
+          <View style={styles.row}>
+            <Text variant="caption" style={{ marginRight: 10 }}>
+              {ratings?.average}
+            </Text>
+            <FontAwesome name="star" color={green} size={16} />
+            <Text variant="caption" style={{ marginLeft: 10 }}>
+              {ratings?.total}+ Ratings
+            </Text>
           </View>
-          <RectButton style={styles.button}>
-            <View style={styles.button}>
-              <Text
-                variant="subhead"
-                color="green"
-                style={{ textTransform: "uppercase" }}
-              >
-                Take away
-              </Text>
+          <View
+            style={{
+              ...styles.row,
+              justifyContent: "space-between",
+              marginVertical: 10,
+            }}
+          >
+            <View style={styles.section}>
+              <View style={{ marginRight: 5, marginTop: 5 }}>
+                <Dollar size={16} color={green} />
+              </View>
+              <View style={styles.col}>
+                <Text variant="body">Free</Text>
+                <Text variant="caption" color="darkgrey">
+                  Delivery
+                </Text>
+              </View>
             </View>
-          </RectButton>
+            <View style={styles.section}>
+              <View style={{ margin: 5 }}>
+                <Timer size={16} color={green} />
+              </View>
+              <View style={styles.col}>
+                <Text variant="body">{time.slice(0, 2)}</Text>
+                <Text variant="caption" color="darkgrey">
+                  Minutes
+                </Text>
+              </View>
+            </View>
+            <RectButton style={styles.button}>
+              <View style={styles.button}>
+                <Text
+                  variant="subhead"
+                  color="green"
+                  style={{ textTransform: "uppercase" }}
+                >
+                  Take away
+                </Text>
+              </View>
+            </RectButton>
+          </View>
+        </View>
+        <View style={styles.featuredItems}>
+          <Text
+            variant="title2"
+            style={{
+              paddingHorizontal: 20,
+            }}
+          >
+            Featuered Items
+          </Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {products.slice(6, 11).map((product, index) => (
+              <FeaturedItemsCard
+                product={product}
+                key={index}
+                first={index === 0}
+                navigation={navigation}
+              />
+            ))}
+          </ScrollView>
         </View>
       </View>
     </ScrollView>
@@ -144,7 +171,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingVertical: 10,
-    paddingHorizontal: 20,
   },
   imageContainer: {
     width: width,
@@ -198,5 +224,8 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: "space-between",
     // paddingVertical: 2,
+  },
+  featuredItems: {
+    marginVertical: 15,
   },
 });
