@@ -32,7 +32,7 @@ const CARD_WIDTH = width * 0.45;
 const HomeCard = ({ item, navigation, fixedHeight }: ProductCardProps) => {
   const { name, price, image, ratings, tags, time, aspectRatio } = item;
 
-  const CARD_HEIGHT = fixedHeight ? CARD_WIDTH + 120 : CARD_WIDTH * aspectRatio;
+  const CARD_HEIGHT = fixedHeight ? CARD_WIDTH + 60 : CARD_WIDTH * aspectRatio;
 
   return (
     <TouchableOpacity

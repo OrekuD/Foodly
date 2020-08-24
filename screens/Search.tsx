@@ -9,9 +9,10 @@ import {
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList, Product } from "../types";
 import { Text, ProductCard } from "../components";
-import { white } from "../constants/Colors";
+import { white, darkgrey, palewhite } from "../constants/Colors";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { products } from "../data/products";
+import { Ionicons } from "@expo/vector-icons";
 
 const Search = ({
   navigation,
@@ -21,6 +22,7 @@ const Search = ({
   const [searchResults, setSearchResults] = useState<Product[]>(
     products.slice(0, 10)
   );
+  // products.slice(0, 10)
 
   useEffect(() => {
     searchProducts();
@@ -28,7 +30,7 @@ const Search = ({
 
   const searchProducts = () => {
     const results = products.filter((product) =>
-      product.name.includes(searchTerm)
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(
       !searchTerm ? products.slice(0, 10) : results.length === 0 ? [] : results
@@ -40,36 +42,67 @@ const Search = ({
       <View style={{ height, backgroundColor: white }} />
       <ScrollView
         style={{ backgroundColor: white }}
-        contentContainerStyle={{ paddingVertical: 20 }}
+        contentContainerStyle={{ paddingTop: 20, flex: 1 }}
       >
-        <TouchableOpacity onPress={() => navigation.navigate("SearchFilter")}>
-          <Text variant="headline" style={{ marginLeft: 20 }}>
-            Search
-          </Text>
-        </TouchableOpacity>
-        <View style={styles.searchInput}>
-          <TextInput
-            placeholder="Search on Foodly"
-            value={searchTerm}
-            onChangeText={(value) => setSearchTerm(value)}
-          />
+        <View style={styles.row}>
+          <Text variant="headline">Search</Text>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("SearchFilter")}
+          >
+            <Text variant="body">Filters</Text>
+          </TouchableOpacity>
         </View>
-        <ScrollView
-          contentContainerStyle={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "space-evenly",
-          }}
-        >
-          {searchResults.map((product, index) => (
-            <ProductCard
-              item={product}
-              navigation={navigation}
-              key={index}
-              fixedHeight
+        <View style={styles.searchInput}>
+          <View style={styles.textInputContainer}>
+            <Ionicons
+              name="ios-search"
+              color={darkgrey}
+              size={24}
+              style={{ marginHorizontal: 20 }}
             />
-          ))}
-        </ScrollView>
+            <TextInput
+              placeholder="Search on Foodly"
+              placeholderTextColor={darkgrey}
+              value={searchTerm}
+              onChangeText={(value) => setSearchTerm(value)}
+              style={styles.textInput}
+            />
+          </View>
+        </View>
+        <Text variant="body" style={{ marginVertical: 10, marginLeft: 20 }}>
+          {searchTerm && searchResults.length > 0
+            ? "Results"
+            : searchResults.length === 0
+            ? ""
+            : "Top Restaurants"}
+        </Text>
+        {searchResults.length > 0 ? (
+          <ScrollView
+            contentContainerStyle={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "space-evenly",
+            }}
+          >
+            {searchResults.map((product, index) => (
+              <ProductCard
+                item={product}
+                navigation={navigation}
+                key={index}
+                fixedHeight
+              />
+            ))}
+          </ScrollView>
+        ) : (
+          <View
+            style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+          >
+            <Text variant="headerText" style={{ marginBottom: 150 }}>
+              No items found :(
+            </Text>
+          </View>
+        )}
       </ScrollView>
     </>
   );
@@ -86,11 +119,27 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 80,
     paddingHorizontal: 20,
-    backgroundColor: "yellow",
     alignItems: "center",
     justifyContent: "center",
   },
+  textInputContainer: {
+    width: "100%",
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: palewhite,
+    flexDirection: "row",
+    alignItems: "center",
+  },
   textInput: {
-    borderWidth: 1,
+    flex: 1,
+    fontSize: 18,
+    paddingRight: 10,
+  },
+  row: {
+    width: "100%",
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });

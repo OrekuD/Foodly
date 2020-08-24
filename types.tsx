@@ -56,6 +56,16 @@ export interface AppContext {
   setUserState: (state: boolean) => void;
   user: User;
   addUserDetails: (userDetails: User) => void;
+  searchFilter: SearchFilter;
+  modifySearchFilter: (filter: SearchFilter) => void;
+}
+
+export interface SearchFilter {
+  all?: boolean;
+  chinese?: boolean;
+  soups?: boolean;
+  fruits?: boolean;
+  burgers?: boolean;
 }
 
 export interface AccountSetting {
