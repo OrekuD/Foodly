@@ -6,6 +6,7 @@ export {
   HomeCard,
   OrdersCard,
   FeaturedItemsCard,
+  CartCard,
 } from "./Cards";
 export { StackHeader, MainHeader } from "./Appbars";
 export { default as Form } from "./Form/Form";

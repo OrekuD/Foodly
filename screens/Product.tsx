@@ -16,11 +16,13 @@ import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { Text, FeaturedItemsCard, ProductCard } from "../components";
 import { products } from "../data/products";
 
+const IMAGE_HEIGHT = 300;
+
 const Product = ({
   navigation,
   route,
 }: StackScreenProps<RootStackParamList, "Product">) => {
-  const { setTabbarState } = useAppContext();
+  const { isProductInCart, manageCart } = useAppContext();
   const { item } = route.params;
   const {
     id,
@@ -38,13 +40,13 @@ const Product = ({
   const { top } = useSafeAreaInsets();
   const scrollY = useRef(new Animated.Value(0)).current;
   const scale = scrollY.interpolate({
-    inputRange: [0, 300],
+    inputRange: [0, IMAGE_HEIGHT],
     outputRange: [1, 1.2],
     extrapolate: "clamp",
   });
 
   const translateY = scrollY.interpolate({
-    inputRange: [0, 300],
+    inputRange: [0, IMAGE_HEIGHT],
     outputRange: [0, 100],
     extrapolate: "clamp",
   });
@@ -64,7 +66,6 @@ const Product = ({
           style={{
             ...styles.image,
             transform: [{ scale }, { translateY }],
-            // borderRadius,
           }}
         />
         <View style={{ ...styles.header, top: top + 10 }}>
@@ -155,13 +156,29 @@ const Product = ({
                 </Text>
               </View>
             </View>
-            <RectButton style={styles.button}>
-              <View style={styles.button}>
-                <Text variant="subhead" color="green">
-                  TAKE AWAY
-                </Text>
-              </View>
-            </RectButton>
+            {isProductInCart(item) ? (
+              <RectButton
+                onPress={() => manageCart("REMOVE_FROM_CART", item)}
+                style={styles.button}
+              >
+                <View style={styles.button}>
+                  <Text variant="subhead" color="green">
+                    REMOVE
+                  </Text>
+                </View>
+              </RectButton>
+            ) : (
+              <RectButton
+                onPress={() => manageCart("ADD_TO_CART", item)}
+                style={styles.button}
+              >
+                <View style={styles.button}>
+                  <Text variant="subhead" color="green">
+                    TAKE AWAY
+                  </Text>
+                </View>
+              </RectButton>
+            )}
           </View>
         </View>
         <View style={styles.featuredItems}>
@@ -216,7 +233,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: width,
-    height: 300,
+    height: IMAGE_HEIGHT,
     position: "relative",
     overflow: "hidden",
   },

@@ -19,3 +19,4 @@ export { default as Walkthrough } from "./Walkthrough";
 export { default as SignIn } from "./SignIn";
 export { default as SignUp } from "./SignUp";
 export { default as SearchFilters } from "./SearchFilters";
+export { default as Cart } from "./Cart";

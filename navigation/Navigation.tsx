@@ -33,6 +33,7 @@ import {
   ReferFriends,
   Product,
   SearchFilters,
+  Cart,
 } from "../screens";
 import { useAppContext } from "../context/Context";
 import { Feather } from "@expo/vector-icons";
@@ -68,6 +69,7 @@ const OrdersNavigation = () => {
       }}
     >
       <OrdersStack.Screen name="Orders" component={Orders} />
+      <OrdersStack.Screen name="Cart" component={Cart} />
     </OrdersStack.Navigator>
   );
 };

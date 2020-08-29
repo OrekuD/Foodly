@@ -13,7 +13,6 @@ import { white, darkgrey, palewhite } from "../constants/Colors";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { products } from "../data/products";
 import { Ionicons } from "@expo/vector-icons";
-import { useAppContext } from "../context/Context";
 
 const Search = ({
   navigation,

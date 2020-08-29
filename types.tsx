@@ -26,6 +26,7 @@ export type HomeStackParamList = {
 
 export type OrdersStackParamList = {
   Orders: undefined;
+  Cart: undefined;
 };
 
 export type SearchStackParamList = {
@@ -64,8 +65,9 @@ export interface AppContext {
   user: User;
   addUserDetails: (userDetails: User) => void;
   cart: Product[];
-  isProductInCart: (product: Product) => Product | undefined;
+  isProductInCart: (product: Product) => boolean;
   manageCart: (action: ACTIONS, product?: Product) => void;
+  cartTotal: number;
 }
 
 export interface SearchFilter {
@@ -105,7 +107,7 @@ export interface Product {
     average: number;
     total: number;
   };
-  count?: number;
+  count: number;
 }
 
 export interface User {
