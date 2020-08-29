@@ -79,7 +79,7 @@ const VerifyPhone = ({
         </View>
         <Button
           label="Continue"
-          onPress={() => isCorrect && navigation.navigate("SetupLocation")}
+          onPress={() => navigation.navigate("SetupLocation")}
         />
         <View style={styles.row}>
           <Text variant="caption" color="grey">

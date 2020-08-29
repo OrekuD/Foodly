@@ -4,7 +4,7 @@ import { white } from "../constants/Colors";
 import { StackHeader, Text, Button } from "../components";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
-// import PhoneInput from "react-native-phone-input";
+import PhoneInput from "react-native-phone-input";
 
 const GetStarted = ({
   navigation,
@@ -39,7 +39,7 @@ const GetStarted = ({
           phone number
         </Text>
         <View style={styles.phoneInput}>
-          {/* <PhoneInput ref={phoneInputRef} initialCountry="gh" /> */}
+          <PhoneInput ref={phoneInputRef} />
         </View>
         <Button
           label="sign up"

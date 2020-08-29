@@ -26,7 +26,7 @@ const Context = createContext<AppContext>({
 });
 
 const Provider = ({ children }: ProviderProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(true);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isTabbarVissible, setIsTabbarVissible] = useState<boolean>(true);
   const [cart, setCart] = useState<Product[]>([]);
   const [cartTotal, setCartTotal] = useState<number>(0);
