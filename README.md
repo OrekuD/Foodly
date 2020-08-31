@@ -1,9 +1,11 @@
-#### Foodly
+## Foodly
 
 A food ordering service template built using Expo.
-30+ unique screens
+Here's the [link](https://ui8.net/ui8/products/foodly-ios-ui-kit) to the UI template used.
 
-##### App screenshots
+## App Screensots
+
+Here are some sample screenshots of the app.
 
 ![Gif](https://github.com/OrekuD/Foodly/blob/master/assets/screenshots/gif.gif?raw=true)
 
